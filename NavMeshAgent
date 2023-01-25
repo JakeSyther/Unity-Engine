@@ -94,3 +94,6 @@ public class NavAgentExample : MonoBehaviour
 
 	}
 }
+
+
+//Make any object which is with a shape, so we can observe it easily, and attach this csript file onto it
