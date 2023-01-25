@@ -28,4 +28,5 @@ public class AIWaypointNetwork : MonoBehaviour
 
 
 
-//Attach this script file to empty object, then set transform.position at specific points with many elements together
+Attach this script file to an empty object. Then, set different empty objects with the transform.position property at specific points.
+Once completed, you will see a list of elements named "waypoints" above the inspector for the scripted object, put them all the location empty objects you have created.
