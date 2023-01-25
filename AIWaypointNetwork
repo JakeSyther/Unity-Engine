@@ -25,3 +25,7 @@ public class AIWaypointNetwork : MonoBehaviour
 	public List<Transform> Waypoints   = new List<Transform>();
 
 }
+
+
+
+//Attach this script file to empty object, then set transform.position at specific points with many elements together
