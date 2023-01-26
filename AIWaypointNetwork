@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public enum PathDisplayMode { None, Connections, Paths }
 
 // -------------------------------------------------------------------
-// CLASS	:	AIWaypointNetwork
+// CLASS	:	AIWaypointNetwork byGarySimmons
 // DESC		:	Contains a list of waypoints. Each waypoint is a 
 //				reference to a transform. Also contains settings
 //				for the Custom Inspector
