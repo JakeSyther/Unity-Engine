@@ -29,11 +29,6 @@ public class NavAgentExample : MonoBehaviour
 		// Cache NavMeshAgent Reference
 		_navAgent = GetComponent<NavMeshAgent>();
 
-		// Turn off auto-update
-		/*_navAgent.updatePosition = false;
-		_navAgent.updateRotation = false;*/
-
-
 		// If not valid Waypoint Network has been assigned then return
 		if (WaypointNetwork==null) return;
 
@@ -86,7 +81,7 @@ public class NavAgentExample : MonoBehaviour
 
 		// If we don't have a path and one isn't pending then set the next
 		// waypoint as the target, otherwise if path is stale regenerate path
-		if ( (!HasPath && !PathPending) || PathStatus==NavMeshPathStatus.PathInvalid /*|| PathStatus==NavMeshPathStatus.PathPartial*/)
+		if ( (!HasPath && !PathPending) || PathStatus==NavMeshPathStatus.PathInvalid)
 			SetNextDestination ( true );
 		else
 		if (_navAgent.isPathStale)
