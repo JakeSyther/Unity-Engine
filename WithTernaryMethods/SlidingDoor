@@ -1,0 +1,113 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public enum DoorState {Open, Animating, Closed };
+
+public class SlidingDoorDemo : MonoBehaviour
+{
+    //Public Members
+    public float            SlidingDistance = 4.0f;
+    public float            Duration        = 1.5f;
+    public AnimationCurve   JumpCurve       = new AnimationCurve();
+
+    //Private Members
+    private Transform       _transform      = null;
+    private Vector3         _openPos        = Vector3.zero;
+    private Vector3         _closedPos      = Vector3.zero;
+    private DoorState       _doorState      = DoorState.Closed;
+
+    void Start()
+    {
+        _transform = transform;
+        _closedPos = _transform.position;
+        _openPos   = _closedPos + (_transform.right * SlidingDistance);
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && _doorState!=DoorState.Animating) 
+        {
+            StartCoroutine(AnimateDoor((_doorState==DoorState.Open)?DoorState.Closed:DoorState.Open));
+        }
+
+    }
+
+
+    IEnumerator AnimateDoor( DoorState newState)
+    {
+        _doorState          = DoorState.Animating;
+        float time          = 0.0f;
+        Vector3 startPos    = (newState==DoorState.Open)?_closedPos:_openPos;
+        Vector3 endPos      = (newState==DoorState.Open)?_openPos:_closedPos;
+
+        while
+        (time <=Duration)
+        {
+            float t             = time/Duration;
+            _transform.position = Vector3.Lerp(startPos, endPos, JumpCurve.Evaluate(t));
+            time                +=Time.deltaTime;
+
+            yield return null;
+        }
+        _transform.position = endPos;
+        _doorState = newState;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Creat an example door which is should slide after script import in it(do not forget to add this script as component)
+
+
+1.The first thing the script does is define an enumeration type "DoorState" with three possible states: "Open", "Animating", and "Closed".
+
+2.The class has several public variables:
+  "SlidingDistance" which is a float value that represents how far the door should slide.
+  "Duration" which is a float value that represents how long the animation should take.
+  "JumpCurve" which is an AnimationCurve object that defines how the door should move during the animation.
+ 
+3.Private variables are:
+
+  "_transform" is a Transform object that holds a reference to the transform component of the object that this script is attached to.
+  "_openPos" and "_closedPos" are Vector3 variables that will be used to store the open and closed positions of the door.
+  "_doorState" is a variable of type "DoorState" that will be used to keep track of the current state of the door.
+  
+4.The "Start" function is called when the script is first initialized. In this function, the script initializes the "_transform" variable to the
+  transform component of the object that the script is attached to. It also initializes the "_closedPos" variable to the current position of the object,
+  and the "_openPos" variable to the closed position plus the sliding distance in the right direction.
+
+5.The "Update" function is called every frame. In this function, the script checks if the space bar is pressed and the door is not currently animating. 
+  If this is the case, it starts a coroutine called "AnimateDoor" and pass the current state of the door as a parameter.
+
+6.The "AnimateDoor" function is a coroutine that takes a "DoorState" parameter and animates the door to that state.
+
+7.local variables "time" and "startPos" to 0 and the current position of the door respectively. It also initializes a local variable "endPos"
+  to either the open or closed position based on the new state passed to the function.
+
+8.The function then enters into a while loop that continues executing as long as "time" is less than or equal to "Duration".
+
+9.Inside the while loop, a variable "t" is defined and assigned the value of "time" divided by "Duration".
+  This variable will be used later to interpolate between the start position and end position of the door.
+
+10.The next line updates the position of the door by using the "Lerp" function to interpolate between the "startPos" and "endPos" variables, using the
+  "JumpCurve.Evaluate(t)" as the interpolation factor. This will make the object smoothly transition from its starting position to its final destination
+   over the course of the door animation.
+
+11.The "time" variable is incremented by "Time.deltaTime", which is a Unity-specific variable that represents the time in seconds since the last frame was rendered.
+
+12.The function yields "null", which tells Unity to wait one frame before continuing the loop. This allows the door animation.
+
+13.Once the while loop has completed, the script sets the door's final position to the "endPos" variable and sets the door
+   state to the new state passed to the function.
+
+14.The AnimateDoor() Coroutine is now complete, and the door will be in its final open or closed position,
+   and the _doorState variable will be updated accordingly.
+
+15.In the Update() function, when the player presses the spacebar, the script checks if the door is not currently animating and if so, it starts the AnimateDoor()
+   Coroutine with the appropriate state.
+
+16.In this script, the door animation is controlled by the JumpCurve variable, which is an AnimationCurve type.
+   This allows you to customize the door animation, you can adjust it to be a linear animation or a more complex one.
+
+17.And that is the basic explanation of how the script works. The script takes care of all the logic of when the door should open or close,
+   and how it should animate between the open and closed positions.
