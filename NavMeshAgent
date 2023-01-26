@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 // ----------------------------------------------------------
-// CLASS	:	NavAgentExample
+// CLASS	:	NavAgentExample byGarySimmons
 // DESC		:	Behaviour to test Unity's NavMeshAgent
 // ----------------------------------------------------------
 [RequireComponent(typeof(NavMeshAgent))]
