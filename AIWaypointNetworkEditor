@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 
 // ------------------------------------------------------------------------------------
-// CLASS	:	AIWaypointNetworkEditor
+// CLASS	:	AIWaypointNetworkEditor byGarySimmons
 // DESC		:	Custom Inspector and Scene View Rendering for the AIWaypointNetwork
 //				Component
 // ------------------------------------------------------------------------------------
