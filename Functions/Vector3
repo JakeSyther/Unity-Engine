@@ -1,0 +1,38 @@
+Vector3.up: Returns a Vector3 with the value (0, 1, 0), which represents the up direction in 3D space.
+Vector3.down: Returns a Vector3 with the value (0, -1, 0), which represents the down direction in 3D space.
+Vector3.left: Returns a Vector3 with the value (-1, 0, 0), which represents the left direction in 3D space.
+Vector3.right: Returns a Vector3 with the value (1, 0, 0), which represents the right direction in 3D space.
+Vector3.forward: Returns a Vector3 with the value (0, 0, 1), which represents the forward direction in 3D space.
+Vector3.back: Returns a Vector3 with the value (0, 0, -1), which represents the back direction in 3D space.
+Vector3.zero: Returns a Vector3 with the value (0, 0, 0), which represents the origin in 3D space.
+Vector3.one: Returns a Vector3 with the value (1, 1, 1), which represents a vector with a length of 1 in all 3 dimensions.
+Vector3.Distance(Vector3 a, Vector3 b): Returns the distance between two Vector3 points.
+Vector3.Dot(Vector3 lhs, Vector3 rhs): Returns the dot product of two Vector3 values.
+Vector3.Cross(Vector3 lhs, Vector3 rhs): Returns the cross product of two Vector3 values.
+Vector3.Normalize(Vector3 value): Returns a Vector3 with a length of 1 while preserving its direction.
+Vector3.Scale(Vector3 a, Vector3 b): Scales a vector by another vector.
+Vector3.Lerp(Vector3 a, Vector3 b, float t): Linearly interpolates between two vectors based on a value between 0 and 1.
+Vector3.Slerp(Vector3 a, Vector3 b, float t): Spherically interpolates between two vectors based on a value between 0 and 1.
+Vector3.Reflect(Vector3 inDirection, Vector3 inNormal): Reflects a vector off the plane defined by a normal.
+Vector3.Min(Vector3 lhs, Vector3 rhs): Returns the minimum values of two vectors.
+Vector3.Max(Vector3 lhs, Vector3 rhs): Returns the maximum values of two vectors.
+Vector3.Angle(Vector3 from, Vector3 to): Returns the angle in degrees between two vectors.
+Vector3.OrthoNormalize(ref Vector3 normal, ref Vector3 tangent): Makes a vector orthogonal to another vector.
+Vector3.RotateTowards(Vector3 current, Vector3 target, float maxRadiansDelta, float maxMagnitudeDelta):Rotates a vector towards another vector by a certain number of radians.
+Vector3.SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime): Gradually changes a vector towards a desired goal over time.
+Vector3.Scale(Vector3 a, Vector3 b): Scales a vector by another vector.
+Vector3.Magnitude(Vector3 a): Returns the magnitude (length) of a Vector3.
+Vector3.SqrMagnitude(Vector3 a): Returns the square of the magnitude (length) of a Vector3. This is faster than Vector3.Magnitude, but less accurate.
+Vector3.Dot(Vector3 lhs, Vector3 rhs): Returns the dot product of two Vector3 values.
+Vector3.Cross(Vector3 lhs, Vector3 rhs): Returns the cross product of two Vector3 values.
+Vector3.Project(Vector3 a, Vector3 b): Projects a vector onto another vector.
+Vector3.ProjectOnPlane(Vector3 a, Vector3 planeNormal): Projects a vector onto a plane.
+Vector3.Exclude(Vector3 excludeThis, Vector3 fromThat): Returns a vector that is made from the subtraction of one vector from another.
+Vector3.LerpUnclamped(Vector3 a, Vector3 b, float t): Linearly interpolates between two vectors without restriction on the interpolant.
+Vector3.MoveTowards(Vector3 current, Vector3 target, float maxDistanceDelta): Moves a point current in a straight line towards a target point.
+Vector3.RotateTowards(Vector3 current, Vector3 target, float maxRadiansDelta, float maxMagnitudeDelta): Rotates a vector towards another vector by a certain number of radians.
+Vector3.SmoothDamp(Vector3 current, Vector3 target, ref Vector3 currentVelocity, float smoothTime): Gradually changes a vector towards a desired goal over time.
+Vector3.OrthoNormalize(ref Vector3 normal, ref Vector3 tangent): Makes a vector orthogonal to another vector.
+Vector3.SlerpUnclamped(Vector3 a, Vector3 b, float t): Spherically interpolates between two vectors without restriction on the interpolant.
+Vector3.OrthoNormalize(ref Vector3 normal, ref Vector3 tangent): Orthonormalizes the given vectors.
+Vector3.OrthoNormalize(ref Vector3 normal, ref Vector3 tangent, ref Vector3 binormal): Orthonormalizes the given vectors.
