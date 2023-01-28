@@ -1,0 +1,33 @@
+Mathf.Abs(float f): Returns the absolute value of a float.
+Mathf.Acos(float f): Returns the arc cosine of a value in radians.
+Mathf.Asin(float f): Returns the arc sine of a value in radians.
+Mathf.Atan(float f): Returns the arc tangent of a value in radians.
+Mathf.Atan2(float y, float x): Returns the angle in radians whose tangent is y/x.
+Mathf.Ceil(float f): Returns the smallest integer greater than or equal to a float.
+Mathf.Clamp(float value, float min, float max): Clamps a value between a minimum and maximum range.
+Mathf.Clamp01(float value): Clamps a value between 0 and 1.
+Mathf.Cos(float f): Returns the cosine of an angle in radians.
+Mathf.Exp(float power): Returns e raised to the specified power.
+Mathf.Floor(float f): Returns the largest integer less than or equal to a float.
+Mathf.InverseLerp(float a, float b, float value): Returns the normalized value of a value between a and b.
+Mathf.Lerp(float a, float b, float t): Linearly interpolates between two floats based on a value between 0 and 1.
+Mathf.Log(float f): Returns the natural logarithm of a float.
+Mathf.Log10(float f): Returns the base 10 logarithm of a float.
+Mathf.Max(float a, float b): Returns the larger of two floats.
+Mathf.Min(float a, float b): Returns the smaller of two floats.
+Mathf.MoveTowards(float current, float target, float maxDelta): Gradually changes a float towards a desired goal over time.
+Mathf.Pow(float f, float p): Returns f raised to the power of p.
+Mathf.Round(float f): Rounds a float to the nearest integer.
+Mathf.Sign(float f): Returns the sign of a float, indicating whether it is positive, negative, or zero.
+Mathf.Sin(float f): Returns the sine of an angle in radians.
+Mathf.Sqrt(float f): Returns the square root of a float.
+Mathf.Tan(float f): Returns the tangent of an angle in radians.
+Mathf.PI: A constant for the value of pi (3.14159265358979323846)
+Mathf.Deg2Rad :Convert from degree to radian
+Mathf.Rad2Deg :Convert from radian to degree
+Mathf.Epsilon :The smallest value that when added to or subtracted from a float still changes the value of the float.
+Mathf.MoveTowardsAngle(float current, float target, float maxDelta): Gradually changes an angle given in degrees towards a desired goal angle over time.
+  It returns the current angle, which will be the same as the target angle if it is closer than maxDelta degrees.
+Mathf.Atan(float f): Returns the angle whose tangent is f. The returned angle is in the range [-π/2, π/2].
+Mathf.Atan2(float y, float x): Returns the angle whose tangent is y/x. The returned angle is in the range [-π, π].
+Mathf.Rad2Deg: Converts a value in radians to degrees. It is a constant value of 180/Mathf.PI.
