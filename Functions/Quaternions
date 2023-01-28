@@ -1,0 +1,23 @@
+Quaternions are used to represent 3D rotations. Here is a list of some common quaternion functions in Unity:
+
+Quaternion.identity: This returns the identity quaternion, which represents a rotation of 0 degrees around all axes.
+
+Quaternion.Euler(float x, float y, float z): This creates a quaternion that represents a rotation around the x, y, and z axes, specified in degrees.
+
+Quaternion.AngleAxis(float angle, Vector3 axis): This creates a quaternion that represents a rotation around a specified axis by a specified angle, in degrees.
+
+Quaternion.LookRotation(Vector3 forward, Vector3 up): This creates a quaternion that represents a rotation that points an object in a specified forward direction, with a specified "up" direction.
+
+Quaternion.Slerp(Quaternion a, Quaternion b, float t): This creates a new quaternion that is the spherical linear interpolation between two quaternions, with a specified interpolation parameter (t) between 0 and 1.
+
+Quaternion.Inverse(Quaternion rotation): This returns the inverse of a quaternion, which represents the opposite rotation of a quaternion.
+
+Quaternion.Angle(Quaternion a, Quaternion b): This returns the angle, in degrees, between two quaternions.
+
+Quaternion.op_Multiply(Quaternion a, Quaternion b): This multiplies two quaternions together.
+
+Quaternion.op_Equality(Quaternion lhs, Quaternion rhs): This compares two quaternions for equality.
+
+Quaternion.op_Inequality(Quaternion lhs, Quaternion rhs): This compares two quaternions for inequality.
+
+It's worth mentioning that Quaternions are less intuitive than Euler angles but they are more efficient and less prone to gimbal lock.
