@@ -1,0 +1,30 @@
+It represents the smallest positive single-precision floating-point number that is greater than zero.
+Mathf.Epsilon is commonly used in numerical calculations and computer graphics as a small tolerance value.
+This value is used to compare floating-point numbers for equality, since direct equality comparison of floating-point numbers can often result in incorrect
+results due to rounding errors. Instead, the comparison checks if the difference between two floating-point numbers is smaller than Mathf.Epsilon,
+which is considered close enough to equal.
+
+For example, in the following code snippet, the condition Mathf.Abs(a - b) < Mathf.Epsilon is used to check if a and b are equal:
+--------------------------------------------
+float a = 0.1f + 0.2f;
+float b = 0.3f;
+
+if (Mathf.Abs(a - b) < Mathf.Epsilon) {
+    Debug.Log("a and b are equal");
+} else {
+    Debug.Log("a and b are not equal");
+}
+--------------------------------------------
+Two float variables a and b are defined and initialized. a is set to 0.1f + 0.2f and b is set to 0.3f.
+The if statement checks if the absolute difference between a and b is less than Mathf.Epsilon. The Mathf.Abs function is used to calculate the absolute difference,
+which returns the absolute value of the difference between two numbers.
+
+If the difference is less than Mathf.Epsilon, the message "a and b are equal" is logged to the console.
+If the difference is not less than Mathf.Epsilon, the message "a and b are not equal" is logged to the console.
+
+In this particular example, the output will be "a and b are equal", even though a and b are not exactly equal due to floating-point rounding errors.
+The comparison uses Mathf.Epsilon as a tolerance value to account for these rounding errors and consider the values equal.
+
+In conclusion, Mathf.Epsilon is a small value used in floating-point equality comparison to account for rounding errors and ensure correct results.
+
+
