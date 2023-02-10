@@ -1,0 +1,29 @@
+AnimationCurve is a type of data structure in Unity that is used to define the motion of objects over time.
+It's commonly used in animation, physics simulations, and other areas where you need to interpolate between keyframe values over time.
+
+The AnimationCurve class allows you to specify a set of keyframes that define the value of an animated property at specific points in time.
+You can control the shape of the curve between the keyframes by manipulating the tangent handles of each keyframe, which determine the rate of change
+of the value over time. The AnimationCurve class provides a number of methods for evaluating the curve at any point in time, including evaluating the curve's value,
+its derivative (rate of change), and its integral (accumulated value).
+
+ The AnimationCurve can be used to animate the value of various properties over time. Some common uses for AnimationCurves in Unity include:
+
+- Animating object properties: You can use AnimationCurves to animate the position, rotation, scale, and other properties of objects over time.
+
+- Controlling particle effects: You can use AnimationCurves to control the behavior of particle systems, such as the size, speed, and color of particles over time.
+
+- Easing animations: You can use AnimationCurves to create custom easing functions that you can use in your animations.
+  This allows you to control the speed and progression of animations in a flexible and intuitive way.
+
+To create an AnimationCurve, you add keys to the curve using the AnimationCurve.AddKey method.
+Each key has a time value and a value, which defines the state of the curve at that point in time.
+You can manipulate the shape of the curve by adjusting the tangent handles of the keys,
+which determine the rate of change of the curve's value.
+
+The AnimationCurve class provides several methods for evaluating the curve at any point in time,
+including Evaluate, EvaluateTangent, and GetKey. You can use these methods to determine the value of the curve at a specific time,
+the rate of change of the curve's value, and the time and value of specific keys on the curve.
+
+In addition to the AnimationCurve class, Unity also provides several other classes and components that make it easy to use AnimationCurves in your projects.
+For example, the Animation component allows you to create animations by specifying AnimationCurves for various properties, 
+and the ParticleSystem component provides a number of built-in AnimationCurves for controlling the behavior of particle systems.
