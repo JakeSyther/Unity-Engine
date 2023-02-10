@@ -1,0 +1,138 @@
+using UnityEngine;
+using System.Collections;
+using JetBrains.Annotations;
+
+public enum PlayerMoveStatus { NotMoving, Walking, Running, NotGrounded, Landing }
+
+
+[System.Serializable]
+public class CurveControlledBob
+{
+    [SerializeField] AnimationCurve _bobcurve = new AnimationCurve( new Keyframe(0f, 0f), new Keyframe(0.5f, 1f ),
+                                                                    new Keyframe(1f, 0f), new Keyframe(1.5f, -1f),
+                                                                    new Keyframe(2f, 0f));
+
+    // Inspector Assigned Bob Control Variables
+    [SerializeField] float          _horizontalMultiplier           = 0.01f;
+    [SerializeField] float          _verticalMultiplier             = 0.02f;
+    [SerializeField] float          _verticaltoHorizontalSpeedRatio = 2.0f;
+
+    // Internals
+    private float _xPlayHead;
+    private float _yPlayHead;
+    private float _baseInterval;
+    private float _curveEndTime;
+
+
+    public void Initialize( float bobBaseInterval )
+    {
+        _baseInterval = bobBaseInterval;
+        _curveEndTime = _bobcurve[_bobcurve.length - 1 ].time;
+    }
+
+    public Vector3 GetVectorOffSet ( float speed )
+    {
+        _xPlayHead += (speed * Time.deltaTime) / _baseInterval;
+        _yPlayHead += ((speed * Time.deltaTime) / _baseInterval) * _verticaltoHorizontalSpeedRatio;
+
+        if (_xPlayHead >  _curveEndTime)
+            _xPlayHead -= _curveEndTime;
+
+        if( _yPlayHead >  _curveEndTime)
+            _yPlayHead -= _curveEndTime;
+
+        float xPos = _bobcurve.Evaluate(_xPlayHead) * _horizontalMultiplier;
+        float yPos = _bobcurve.Evaluate(_yPlayHead) * _verticalMultiplier;
+
+        return new Vector3 (xPos, yPos, 0f);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The CurveControlledBob class is a class that provides a simple way to add a "bobbing" effect to a character or object in a game.
+The bobbing effect makes the object move up and down in a repetitive, wave-like pattern.
+
+Here is an overview of what the code does:
+
+Serialization Attributes: The class is decorated with the [System.Serializable] attribute, which makes it serializable and visible in the Unity inspector.
+This allows you to set values for the class' properties in the Unity Editor. The AnimationCurve and float variables are decorated with the [SerializeField] attribute,
+which makes them serializable as well, and therefore editable in the Unity Editor.
+
+Animation Curve Definition: The _bobcurve variable is defined as an AnimationCurve and is initialized with 5 keyframes.
+The AnimationCurve is used to define the shape of the bobbing effect. The 5 keyframes define the curve to start at 0, rise to 1,
+fall back to 0, fall to -1, and then rise back to 0.
+
+Bobbing Control Variables: There are three float variables _horizontalMultiplier, _verticalMultiplier, and _verticaltoHorizontalSpeedRatio that are defined as
+[SerializeField]. These variables are used to control various aspects of the bobbing effect. The _horizontalMultiplier and _verticalMultiplier control the 
+magnitude of the bobbing effect in the x and y directions, respectively. The _verticaltoHorizontalSpeedRatio variable is used to adjust the speed of the vertical
+bobbing relative to the horizontal bobbing.
+
+Playhead Variables: The _xPlayHead and _yPlayHead variables are used to keep track of the current position in the AnimationCurve.
+The _baseInterval and _curveEndTime variables are used to control the speed of the bobbing effect and the length of the curve, respectively.
+
+Initialization: The Initialize method takes a bobBaseInterval argument and uses it to set the _baseInterval variable. The _curveEndTime variable is set to
+the time of the last keyframe in the _bobcurve AnimationCurve.
+
+Get Vector Offset: The GetVectorOffSet method takes a speed argument and returns a Vector3 that represents the offset from the original position of the object.
+The method starts by incrementing the _xPlayHead and _yPlayHead variables by the product of the speed and Time.deltaTime divided by _baseInterval.
+If either of the playheads goes past the end of the curve, they are reset back to 0.
+Finally, the method evaluates the _bobcurve at the current position of the _xPlayHead and _yPlayHead to get the values for the x and y positions.
+These values are multiplied by the _horizontalMultiplier and _verticalMultiplier respectively and returned as a Vector3.
+
+That's a basic overview of what the code does. You can use this class in your own project by instantiating an object of this class,
+setting the properties in the Unity Editor, and calling the GetVectorOffSet method
+
+Let's say we have the following values:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+_baseInterval = 10.0f;
+_verticaltoHorizontalSpeedRatio = 2.0f;
+_horizontalMultiplier = 0.01f;
+_verticalMultiplier = 0.02f;
+speed = 5.0f;
+Time.deltaTime = 0.01f;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+At the start of the calculation:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+_xPlayHead = 0.0f;
+_yPlayHead = 0.0f;
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In the first iteration of the loop:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+_xPlayHead += (speed * Time.deltaTime) / _baseInterval;
+  = (5.0f * 0.01f) / 10.0f
+  = 0.0005f
+
+_yPlayHead += ((speed * Time.deltaTime) / _baseInterval) * _verticaltoHorizontalSpeedRatio;
+  = ((5.0f * 0.01f) / 10.0f) * 2.0f
+  = 0.001f
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Now, let's assume that the value of _bobcurve.Evaluate(0.0005f) is 0.5 and the value of _bobcurve.Evaluate(0.001f) is 0.6. Then,
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+float xPos = _bobcurve.Evaluate(_xPlayHead) * _horizontalMultiplier;
+  = 0.5 * 0.01f
+  = 0.005f
+
+float yPos = _bobcurve.Evaluate(_yPlayHead) * _verticalMultiplier;
+  = 0.6 * 0.02f
+  = 0.012f
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+float xPos = _bobcurve.Evaluate(_xPlayHead) * _horizontalMultiplier;
+  = 0.5 * 0.01f
+  = 0.005f
+
+float yPos = _bobcurve.Evaluate(_yPlayHead) * _verticalMultiplier;
+  = 0.6 * 0.02f
+  = 0.012f
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Finally,
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+return new Vector3 (xPos, yPos, 0f);
+  = new Vector3(0.005f, 0.012f, 0.0f);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ This is just an example and the actual values may differ based on the values of the animation curve and other variables.
+
+
+
+
+
+
