@@ -1,0 +1,16 @@
+Mathf.Max is a function in the Mathf class of Unity engine.
+The Mathf.Max function returns the maximum of two or more values.
+It takes two or more float values as arguments and returns the highest of those values.
+
+An example of how Mathf.Max can be used in a script:
+-----------------------------------------------------------
+float a = 5.0f;
+float b = 10.0f;
+float c = 15.0f;
+
+float maxValue = Mathf.Max(a, b, c);
+
+Debug.Log("The maximum value is: " + maxValue);
+-----------------------------------------------------------
+ Mathf.Max is used to find the maximum value of a, b, and c.
+ The maximum value is 15.0f, and the output will be "The maximum value is: 15".
