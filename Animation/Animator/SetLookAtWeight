@@ -1,0 +1,59 @@
+Animator.SetLookAtWeight is a function in the Animator component in the Unity engine. It sets the weight of the look-at effect on a character's head or body.
+The Animator.SetLookAtWeight function takes five arguments:
+
+- "bodyWeight" : A float value that sets the weight of the look-at effect on the body.
+- "headWeight" : A float value that sets the weight of the look-at effect on the head.
+- "eyesWeight" : A float value that sets the weight of the look-at effect on the eyes.
+- "clampWeight": A float value that clamps the total weight of the look-at effect.
+- "damping"    : A float value that controls the damping of the look-at effect.
+
+Here's an example of how Animator.SetLookAtWeight can be used in a script:
+-----------------------------------------------------------------------------
+public Animator animator;
+
+private void Update()
+{
+    animator.SetLookAtWeight(0.5f, 1.0f, 0.0f, 1.0f, 0.3f);
+}
+-----------------------------------------------------------------------------
+In this example, the Animator component is attached to a GameObject, and the reference to the component is stored in the animator variable.
+The Update function calls animator.SetLookAtWeight to set the weight of the look-at effect on the body to 0.5, on the head to 1.0, on the eyes to 0.0, and clamps
+the total weight to 1.0. The damping of the look-at effect is set to 0.3.
+
+Animator.SetLookAtWeight is used in game development to control the weight of the look-at effect on a character's head or body.
+This can be useful for adding subtle animations or for creating more convincing artificial intelligence characters.
+
+Another example:
+-----------------------------------------------------------------------------
+public Animator animator;
+public Transform target;
+
+private void Update()
+{
+    Vector3 targetPosition = target.position;
+    Vector3 currentPosition = transform.position;
+    Vector3 lookDirection = targetPosition - currentPosition;
+
+    float angle = Vector3.Angle(transform.forward, lookDirection);
+    float bodyWeight = Mathf.Lerp(0.0f, 1.0f, angle / 180.0f);
+
+    animator.SetLookAtWeight(bodyWeight, 1.0f, 0.0f, 1.0f, 0.3f);
+    animator.SetLookAtPosition(targetPosition);
+}
+-----------------------------------------------------------------------------
+
+In this example, there's a target Transform and an Animator component attached to a GameObject.
+The Update function calculates the direction from the current position to the target position using lookDirection = targetPosition - currentPosition.
+
+The angle between the current forward direction and the lookDirection is calculated using Vector3.Angle.
+The bodyWeight variable is calculated by linear interpolation between 0.0 and 1.0 using Mathf.Lerp and the angle.
+
+The animator.SetLookAtWeight function is called to set the weight of the look-at effect on the body, head and eyes.
+The bodyWeight variable is passed as the first argument to set the weight of the look-at effect on the body, and the 1.0f value
+is passed as the second argument to set the full weight of the look-at effect on the head. The damping of the look-at effect is set to 0.3.
+
+The animator.SetLookAtPosition function is called to set the position for the character to look at.
+
+This example shows how to use Animator.SetLookAtWeight and Animator.SetLookAtPosition to make the character look at a target
+and smoothly rotate their body towards the target, depending on the angle between the target and the character's forward direction.
+
