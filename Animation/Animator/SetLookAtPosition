@@ -1,0 +1,52 @@
+The Animator.SetLookAtPosition function sets a position for the character's head to look at. 
+It takes one argument: a Vector3 value that represents the position in world space that the character should look at.
+
+Example of how Animator.SetLookAtPosition can be used in a script:
+-----------------------------------------------------------------------------
+public Animator animator;
+
+private void Update()
+{
+    Vector3 targetPosition = new Vector3(1.0f, 2.0f, 3.0f);
+    animator.SetLookAtPosition(targetPosition);
+}
+-----------------------------------------------------------------------------
+In this example, the Animator component is attached to a GameObject, and the reference to the component is stored in the animator variable.
+The Update function sets the target position to (1.0f, 2.0f, 3.0f) and calls animator.SetLookAtPosition to set the position for the character's head to look at.
+
+Animator.SetLookAtPosition is used in game development to control the direction that a character's head is facing.
+This can be useful for adding subtle animations or for creating more convincing artificial intelligence characters.
+
+
+More complex example:
+-----------------------------------------------------------------------------
+public Animator animator;
+public Transform target;
+
+private void Update()
+{
+    Vector3 targetPosition = target.position;
+    Vector3 currentPosition = transform.position;
+    Vector3 lookDirection = targetPosition - currentPosition;
+
+    animator.SetLookAtPosition(targetPosition);
+    animator.SetLookAtWeight(1.0f, 0.3f, 0.6f, 1.0f, 0.5f);
+
+    Vector3 bodyDirection = Vector3.Lerp(transform.forward, lookDirection, 0.1f);
+    animator.SetLookAtPosition(bodyDirection);
+}
+-----------------------------------------------------------------------------
+
+In this example, there's a target Transform and an Animator component attached to a GameObject.
+The Update function calculates the direction from the current position to the target position using lookDirection = targetPosition - currentPosition.
+
+The animator.SetLookAtPosition function is called to set the position for the character's head to look at.
+The animator.SetLookAtWeight function is called to set the weight of the look-at effect on the character's head.
+The 1.0f value in the SetLookAtWeight function sets the full weight of the look-at effect on the head.
+
+The bodyDirection variable is calculated by linear interpolation of the current forward direction and the lookDirection using Vector3.Lerp with t = 0.1f.
+The animator.SetLookAtPosition function is called again to set the direction for the character's body to look at.
+
+This example shows a more complex use case of Animator.SetLookAtPosition and Animator.SetLookAtWeight, where the direction of the character's
+body and head are set to look at the target position. This can be useful for creating more sophisticated artificial intelligence characters
+or for adding subtle animations to the character.
