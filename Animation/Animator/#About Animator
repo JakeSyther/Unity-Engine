@@ -1,0 +1,29 @@
+The Animator component in Unity is used to control animations on GameObjects.
+It allows you to create animations using the Animation Window, and then play and control those animations through script.
+The Animator component integrates with Unity's Animation system, and can blend animations, transition between animations,
+and control various animation properties such as speed and weight.
+
+An example of how you can use the Animator component in a script:
+
+---------------------------------------------------
+public class AnimatorExample : MonoBehaviour
+{
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Jump");
+        }
+    }
+}
+---------------------------------------------------
+In this example, the Start method gets a reference to the Animator component attached to the GameObject by using the GetComponent method.
+The Update method then checks for the user pressing the space bar each frame, and when it detects that the space bar has been pressed,
+it triggers the "Jump" animation by calling animator.SetTrigger("Jump").
