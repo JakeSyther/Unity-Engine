@@ -1,0 +1,24 @@
+The Transform.root property in Unity refers to the top-most parent Transform component in the hierarchy.
+In other words, it returns the highest Transform in the hierarchy that this Transform is a child of.
+If the Transform has no parent, then it returns itself. The Transform.root property can be useful for finding the top-level object that a Transform is a part of,
+or for navigating the hierarchy to perform actions on all of the children of a particular parent.
+
+An example of how you can use the Transform.root property in a script:
+------------------------------------------------------------------------
+using UnityEngine;
+
+public class RootExample : MonoBehaviour
+{
+    void Start()
+    {
+        Transform rootTransform = transform.root;
+        Debug.Log("The root transform is: " + rootTransform.name);
+    }
+}
+------------------------------------------------------------------------
+In this example, the Start method retrieves the root Transform by accessing the transform.root property,
+and then outputs its name to the console using the Debug.Log method. If you attach this script to an object in your scene,
+you will be able to see the name of the root Transform in the console when the scene starts.
+
+
+
