@@ -1,0 +1,10 @@
+The Emit function can be called from scripts or animation events to create a burst of particles.
+The number of particles emitted, their initial velocity, and other properties can be controlled by setting
+the values of the Particle System's parameters before calling the Emit function.
+
+For example, if you have a particle system that simulates an explosion, you could use the Emit function in an animation event to cause the explosion 
+to occur at a specific time during the animation. You can also use the Emit function in a script to cause the explosion to occur when a certain condition is met,
+such as when the player reaches a certain location or when an enemy is defeated.
+
+Note that the Emit function is only available in the Unity Editor and in builds of the game.
+It will not work in the Unity Editor Play mode. To test the Emit function, you will need to build and run your project.
