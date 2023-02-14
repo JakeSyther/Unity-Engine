@@ -1,0 +1,53 @@
+In Unity, MonoBehaviour is a class that allows a script to interact with the Unity engine.
+Any script in Unity that needs to interact with the game engine or be attached to a GameObject in a scene must inherit from MonoBehaviour.
+This class contains various methods and properties that can be overridden to execute code at different stages of the game loop.
+
+
+
+MonoBehaviour allows you to access and modify game objects and components in the scene, set up event handlers, create custom animation states, and much more.
+By inheriting from MonoBehaviour, you can write scripts that can be attached to GameObjects in the scene, and can interact with the game world.
+
+Some of the methods available in MonoBehaviour include:
+
+1. Awake(): Called when the script is first loaded and the GameObject is created. This method is often used for initialization that can't be done in the Start() method,
+   such as finding references to other objects in the scene or setting up default values.
+   
+2. Start(): Called at the beginning of the first frame in which the script is active. This method is often used for initialization that can't be done in the Awake() 
+   method, such as setting up references to other objects or components that have been initialized during the Awake() phase.
+   
+3. Update(): Called once per frame, used to update the state of the script. This method is often used for updating the position, rotation, or other properties of
+   the GameObject based on user input or game state.
+   
+4. FixedUpdate(): Called once per physics update. This method is often used for physics calculations, such as moving rigidbodies or applying forces to them.
+
+5. LateUpdate(): Called once per frame, after all other Update() methods have been called. This method is often used for camera or GUI-related
+   updates that need to happen after other updates have occurred.
+   
+6. OnGUI(): Called whenever the GUI needs to be rendered. This method is often used for creating custom GUI elements or for rendering debug information on the screen.
+
+7. OnDisable(): Called when the GameObject is disabled. This method is often used for cleaning up resources or state that was allocated during the Awake()
+   or Start() methods.
+
+8. OnEnable(): Called when the GameObject is enabled. This method is often used for initializing state or resources that are needed for the 
+   GameObject to function properly.
+   
+9. OnDestroy(): Called when the GameObject is about to be destroyed. This method is often used for cleaning up resources or state that was
+   allocated during the Awake() or Start() methods, or for unregistering event handlers.
+
+10. OnApplicationQuit(): Called when the application is about to quit. This method is often used for cleaning up resources or saving game
+    state before the application is closed.
+
+Each of these methods can be overridden in a subclass of MonoBehaviour to provide custom behavior for the GameObject that the script is attached to.
+
+"While these are the primary methods available in the MonoBehaviour class, there are many other methods and functions available
+in Unity that can be used to customize the behavior of your GameObjects. To become a proficient Unity developer,
+it is worth searching for and practicing with these additional methods and functions."
+
+"In our hub, you can also find a subfolder containing other scripts and examples that you can read and check to further expand your knowledge."
+
+
+
+
+
+     
+
