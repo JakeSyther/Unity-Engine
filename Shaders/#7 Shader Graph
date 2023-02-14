@@ -1,0 +1,17 @@
+Shader Graph is a visual programming language in Unity that enables you to create shaders using blocks, nodes, and mathematical equations.
+This tool provides an easier way for artists and designers to create custom shaders without writing code.
+
+Shader Graph shaders can be used for various purposes, including:
+
+1. Material shading: You can use Shader Graph to create materials for 3D objects, such as surfaces, water, glass, and more.
+
+2. Particle effects: You can create particle shaders to add effects such as fire, smoke, and magic spells.
+
+3. UI effects: Shader Graph can be used to create custom UI effects, such as color correction, scrolling, and pulsing.
+
+4. Light effects: You can use Shader Graph to create custom lighting effects, such as rim lighting, rim colors, and light trails.
+
+Shader Graph provides a visual interface for building shaders, which makes it easier for non-programmers to create and modify shaders. 
+The visual interface also provides a more intuitive way to understand the relationships between various parameters and their effects.
+
+Overall, Shader Graph is a powerful tool for creating custom shaders in Unity and can be a great asset for any project.
