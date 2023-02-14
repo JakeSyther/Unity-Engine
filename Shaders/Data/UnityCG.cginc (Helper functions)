@@ -1,0 +1,43 @@
+1. float3 UnityObjectToWorldNormal(float3 norm)
+
+   This function transforms a normal vector from object space to world space. 
+   It takes an object space normal as input and returns the corresponding world space normal.
+   
+2. float3 UnityWorldToObjectNormal(float3 norm)
+
+   This function transforms a normal vector from world space to object space.
+   It takes a world space normal as input and returns the corresponding object space normal.
+   
+3. float4 UnityObjectToWorldPos(float4 pos)
+
+   This function transforms a position vector from object space to world space. 
+   It takes an object space position as input and returns the corresponding world space position.
+
+4. float4 UnityWorldToObjectPos(float4 pos)
+
+   This function transforms a position vector from world space to object space.
+   It takes a world space position as input and returns the corresponding object space position.
+   
+5. float3 UnityObjectToViewPos(float4 pos)
+
+   This function transforms a position vector from object space to view space.
+   It takes an object space position as input and returns the corresponding view space position.
+
+6. float3 UnityViewToWorldPos(float3 pos)
+
+   This function transforms a position vector from view space to world space.
+   It takes a view space position as input and returns the corresponding world space position.
+
+7. float3 UnityWorldToViewPos(float3 pos)
+
+   This function transforms a position vector from world space to view space.
+   It takes a world space position as input and returns the corresponding view space position.
+
+These helper functions can be very useful in Unity shader development, as they simplify the process of transforming vectors between different coordinate spaces.
+They can be used in both vertex and fragment shaders to transform positions and normals, and to perform other common operations.
+
+
+
+
+
+
