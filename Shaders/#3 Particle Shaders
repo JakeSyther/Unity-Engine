@@ -1,0 +1,14 @@
+Particle shaders in Unity are specifically designed for use with the Particle System component.
+They determine the appearance of each particle in the system, such as its size, color, transparency, and shape.
+Particle shaders use a combination of texture maps and algorithms to create the desired visual effects.
+
+Some of the built-in particle shaders in Unity include:
+
+1. Particles/Alpha Blended: This shader uses an alpha channel to blend the particle with the background, allowing for smooth transparency.
+2. Particles/Additive: This shader adds the particle color to the background, resulting in bright, glowing effects.
+3. Particles/Multiply: This shader multiplies the particle color with the background, darkening it and creating shadow-like effects.
+4. Particles/VertexLit: This shader is used to create particle effects that are lit by the scene lights and cast shadows.
+5. Particles/Multiply Blended: This shader combines the multiply and alpha blended shaders to create particles that darken the background and have smooth transparency.
+
+There are many other particle shaders available, and you can also create your own custom shaders to achieve unique visual effects. When creating custom particle shaders,
+it's important to have a good understanding of shader programming and the math behind the algorithms used to generate the effects.
