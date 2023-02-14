@@ -1,0 +1,57 @@
+Shader "Custom/DisplacementShader" {
+    Properties {
+        _MainTex ("Texture", 2D) = "white" {}
+        _DisplacementAmount ("Displacement Amount", Range(0, 1)) = 0.1
+        _DisplacementOffset ("Displacement Offset", Range(0, 1)) = 0.1
+    }
+    SubShader {
+        Pass {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
+
+            struct appdata {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
+
+            sampler2D _MainTex;
+            float _DisplacementAmount;
+            float _DisplacementOffset;
+
+            v2f vert (appdata v) {
+                v.vertex.xyz += sin(v.vertex.y * 10 + _Time.y * 10) * _DisplacementAmount + _DisplacementOffset;
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target {
+                fixed4 col = tex2D(_MainTex, i.uv);
+                return col;
+            }
+
+            ENDCG
+        }
+    }
+}
+
+
+the "vert" function is used to modify the position of each vertex in the mesh. 
+The "sin" function is used to create a wavy displacement effect, and the amount and offset of the displacement effect are controlled
+by the "_DisplacementAmount" and "_DisplacementOffset" properties.
+
+The "appdat" struct defines the input data that is used by the "vert" function, and the "v2f" struct defines the output data that is used by the "frag" function. 
+The "UnityObjectToClipPos" function is used to transform the modified vertex position from object space to clip space.
+
+The "frag" function is used to render the final pixel color of the mesh, and the texture color is sampled from the "_MainTex" property.
+
+Note that this is just a simple example to demonstrate how you can modify the vertices of a mesh in a custom shader.
+The exact details of how to create a custom shader will depend on your specific needs and the particular effects that you want to achieve.
