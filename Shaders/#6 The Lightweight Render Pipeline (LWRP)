@@ -1,0 +1,20 @@
+The Lightweight Render Pipeline (LWRP) is a scriptable render pipeline built by Unity Technologies.
+It is designed to be easy to use and optimized for performance, which is critical for mobile devices.
+The LWRP supports a wide range of shaders, including the following:
+
+1. Unlit Shader: This shader is used for objects that do not require lighting, such as UI elements or billboards.
+
+2. Lite Forward Shader: This shader is used for objects that require forward rendering, such as opaque objects.
+   It supports a limited number of lights and shadows, making it suitable for low-end hardware.
+
+3. Lite Depth Shader: This shader is used for objects that require depth pass rendering, such as transparent objects. 
+   It does not support reflections, making it suitable for low-end hardware.
+   
+4. Particle Shader: This shader is used for particle systems. It supports a limited number of features, making it suitable for low-end hardware.
+
+5. Sprites Shader: This shader is used for 2D sprite objects. It supports sprite textures and sprite outlines.
+
+6. UI Shader: This shader is used for UI elements that require a specific look, such as text or images.
+
+The LWRP shaders are optimized for performance, which means that they are designed to work well on mobile devices.
+This makes them ideal for use in games and applications that target low-end hardware.
