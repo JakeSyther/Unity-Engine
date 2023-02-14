@@ -1,0 +1,18 @@
+The Standard Shader in Unity is a built-in shader that is used as a base for several other built-in shaders, such as the Specular and Bumped Specular shaders.
+It is designed to support a wide range of features and work with a variety of lighting models, making it a versatile choice for many different types of projects.
+
+The Standard Shader supports several features, including:
+
+1. Albedo: This allows you to specify the base color of a material.
+2. Emission: This allows you to specify an emission color for a material, which can be used to make it glow in the dark.
+3. Gloss: This allows you to control the shininess of a material, giving it a smooth or rough appearance.
+4. Normal maps: This allows you to add detail to the surface of a material by simulating bumps and other surface imperfections.
+5. Ambient Occlusion: This adds soft shadows to crevices and corners, making objects appear more grounded in the environment.
+6. Reflections: This allows you to add reflective surfaces to objects, such as mirrors or metal.
+7. Transparency: This allows you to make objects transparent, so that you can see through them.
+8. Shadows: This allows you to control how an object casts shadows and how it is affected by shadows cast by other objects.
+9. Light Probes: This allows you to dynamically light objects in a scene by using light probes, which can be placed in the environment.
+
+The Standard Shader also includes several presets for different types of materials, such as "Specular" and "Diffuse," making it easy to get
+started with creating realistic materials. Additionally, the Standard Shader supports a wide range of lighting models, including Phong, Blinn-Phong,
+and Cook-Torrance. This makes it a great choice for a wide range of projects, from stylized games to photorealistic simulations.
