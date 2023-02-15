@@ -1,0 +1,32 @@
+
+- lerp(a, b, t): linearly interpolates between two values a and b based on a blend factor t.
+- saturate(x): clamps a value x between 0 and 1.
+- step(a, b): returns 1 if a is less than or equal to b, and 0 otherwise.
+- mul(a, b): multiplies two matrices or vectors.
+- tex2D(sampler, coord): samples a 2D texture using a sampler object and texture coordinates.
+- tex2Dlod(sampler, coord, lod): samples a 2D texture using a sampler object, texture coordinates, and a specified level of detail.
+- tex2Dbias(sampler, bias): samples a 2D texture using a sampler object and a bias value to adjust the level of detail.
+- tex3D(sampler, coord): samples a 3D texture using a sampler object and texture coordinates.
+- texCUBE(sampler, coord): samples a cubemap texture using a sampler object and texture coordinates.
+- lerp(a, b, t): linearly interpolates between two values a and b based on a blend factor t.
+- lerp(a, b, t): linearly interpolates between two values a and b based on a blend factor t.
+- lerp(a, b, t):
+
+There are many more functions and directives available in the Unity Shader Language,
+and their functionality can vary depending on the context in which they are used.
+It's worth noting that many of these functions are also common to other shader languages, like HLSL or GLSL.
+
+Some links to the official Unity documentation for the ShaderLab language, which includes a full reference of available functions and directives:
+
+- ShaderLab: https://docs.unity3d.com/Manual/SL-Shader.html
+- ShaderLab Syntax: https://docs.unity3d.com/Manual/SL-ShaderSyntax.html
+- ShaderLab Properties: https://docs.unity3d.com/Manual/SL-Properties.html
+- ShaderLab SubShader: https://docs.unity3d.com/Manual/SL-SubShader.html
+- ShaderLab Pass: https://docs.unity3d.com/Manual/SL-Pass.html
+- UnityCG.cginc: https://docs.unity3d.com/Manual/SL-UnityShaderVariables.html
+
+These resources provide a comprehensive overview of the ShaderLab language, including its syntax, 
+available functions and directives, and best practices for writing shaders in Unity.
+
+
+
