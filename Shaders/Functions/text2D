@@ -1,0 +1,11 @@
+tex2D is a built-in function in Unity that is used to sample a texture at a given UV coordinate. It takes two parameters:
+
+The first parameter is a sampler2D, which is a reference to a texture that has been assigned to a shader property in the Material of the object being rendered.
+In this case, the texture has been assigned to the _MainTex property in the shader's Properties block.
+
+The second parameter is a float2 vector that contains the UV coordinates of the pixel being rendered.
+The function returns a fixed4 vector that contains the color of the texture at the specified UV coordinates.
+The fixed4 vector has four components: red, green, blue, and alpha (transparency), and is represented by floating-point values between 0 and 1.
+
+The tex2D function is commonly used in fragment shaders to access the color of a texture at the current pixel being rendered, which can then be modified
+and returned to create visual effects like the one in this shader.
