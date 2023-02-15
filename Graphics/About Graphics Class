@@ -1,0 +1,19 @@
+Graphics is a static class in the UnityEngine namespace that provides a variety of graphics-related functionality,
+including rendering, drawing, and working with textures and meshes.
+
+Some of the main functions and properties provided by the Graphics class:
+
+1. DrawMesh(): Draws a Mesh object using a specified Material.
+2. Blit(): Copies a Texture or RenderTexture to another RenderTexture with an optional material and shader.
+3. ClearRandomWriteTargets(): Clears any active compute buffer or texture targets.
+4. CreateCommandBuffer(): Creates a new CommandBuffer object that can be used to record and execute rendering commands.
+5. SetRenderTarget(): Sets the current render target for subsequent rendering operations.
+6. ActiveTier: Gets the current graphics API level.
+7. multiThreaded: Gets or sets whether the rendering is performed on multiple threads.
+
+In addition, the Graphics class also provides several properties and functions for working with textures and materials,
+such as DrawTexture() for drawing a 2D texture, and GetActiveColorSpace() for getting the active color space used by the rendering system.
+
+The Graphics class is used extensively in Unity for rendering and graphics-related operations, and it provides a lot of low-level control and customization
+options for developers. However, because it is a low-level API, it can be more difficult to use than the higher-level functions and classes provided by Unity,
+and it is generally recommended only for advanced users with specific needs or optimizations.
