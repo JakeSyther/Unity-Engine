@@ -1,0 +1,29 @@
+Graphics.Blit() is a function provided by the Graphics class in the UnityEngine namespace in Unity.
+It is used to copy a source Texture or RenderTexture to a destination RenderTexture, with an optional material and shader applied to the copied data.
+
+Basic syntax for using Graphics.Blit():
+------------------------------------------------------------
+public static void Blit(Texture source, RenderTexture dest);
+------------------------------------------------------------
+
+The source parameter specifies the source texture to copy data from, while the dest parameter specifies the destination render texture to copy the data to.
+
+Additionally, Graphics.Blit() can take additional arguments to customize the copy operation, such as:
+
+1. Material mat: Specifies the material to use for the copy operation, which can be used to apply a custom shader or blend mode.
+2. int pass: Specifies the shader pass to use for the copy operation, if using a custom shader.
+3. Vector2 scale: Specifies the scale factor to apply to the copied data, relative to the destination texture size.
+4. Vector2 offset: Specifies the offset to apply to the copied data, relative to the destination texture.
+
+Here is an example of using Graphics.Blit() to copy a source texture to a destination render texture, with a custom material and shader applied:
+------------------------------------------------------------------------------------------------------------------------
+public Material blitMaterial;
+
+private void OnRenderImage(RenderTexture source, RenderTexture destination) {
+    Graphics.Blit(source, destination, blitMaterial);
+}
+------------------------------------------------------------------------------------------------------------------------
+
+In this example, the OnRenderImage() function is called by Unity to perform a post-processing effect after rendering the scene. 
+The source parameter contains the source texture data, while the destination parameter specifies the destination render texture to copy the data to. 
+The blitMaterial parameter specifies the custom material to use for the copy operation, which applies a custom shader effect.
