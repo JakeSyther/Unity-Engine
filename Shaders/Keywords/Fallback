@@ -1,0 +1,95 @@
+In Unity shader programming, the Fallback keyword is used to specify a default shader to use when the current shader is not supported
+by the graphics hardware or is disabled. When a fallback shader is specified, it will be used as a replacement for the current shader
+if the current shader cannot be executed.
+
+The purpose of the Fallback keyword is to ensure that the application remains functional even on hardware or systems that cannot support the 
+full range of features used by the current shader. By specifying a fallback shader, the application can ensure that at least a basic level of
+rendering functionality is available, even if it may not be as visually appealing or advanced as the original shader.
+
+To use the Fallback keyword, you simply include it at the beginning of your shader code and specify the name of the fallback shader that you want to use.
+For example, "Fallback "Diffuse"" would tell Unity to use the built-in Diffuse shader if the current shader cannot be executed.
+If you don't specify a fallback shader, Unity will use a default fallback shader that is appropriate for the current platform.
+
+The fallback shader that you specify should have a similar feature set to the original shader so that it can provide a reasonable approximation of the original 
+shader's behavior. However, it is not necessary for the fallback shader to exactly replicate the behavior of the original shader, 
+as the goal is simply to provide a basic level of functionality for hardware or systems that cannot support the original shader.
+
+Overall, the Fallback keyword is an important tool for ensuring that your application remains functional on a wide range of hardware and systems.
+By specifying a fallback shader, you can provide a basic level of rendering functionality even when the original shader cannot be executed, 
+helping to ensure a more consistent user experience for all users.
+
+
+
+Using a Built-in Shader as a Fallback
+
+Let's say you have a custom shader that uses some advanced features that may not be supported by all hardware.
+To ensure that the application remains functional even on systems that cannot support your custom shader, you can use the Fallback keyword to specify 
+a built-in shader as a fallback. For example:
+----------------------------------------------------------------------------------------------------------------------
+Shader "Custom/MyShader" {
+    Properties {
+        _MainTex ("Texture", 2D) = "white" {}
+        // Add additional custom properties here
+    }
+
+    SubShader {
+        // Add rendering code for your custom shader here
+        // ...
+        // ...
+
+        // Specify the built-in "Diffuse" shader as a fallback
+        Fallback "Diffuse"
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+In this example, the custom shader will be used if possible, but if the hardware or system cannot support the shader,
+Unity will use the built-in "Diffuse" shader instead.
+
+Example 2: Using a Custom Shader as a Fallback
+
+You can also use a custom shader as a fallback, if you want to provide more control over the fallback rendering behavior. For example:
+----------------------------------------------------------------------------------------------------------------------
+Shader "Custom/MyShader" {
+    Properties {
+        _MainTex ("Texture", 2D) = "white" {}
+        // Add additional custom properties here
+    }
+
+    SubShader {
+        // Add rendering code for your custom shader here
+        // ...
+        // ...
+
+        // Specify a custom "SimpleShader" as a fallback
+        Fallback "Custom/SimpleShader"
+    }
+
+    FallBack "Diffuse"
+}
+
+Shader "Custom/SimpleShader" {
+    Properties {
+        _MainTex ("Texture", 2D) = "white" {}
+    }
+
+    SubShader {
+        Pass {
+            // Use a simple diffuse lighting model as a fallback
+            Material {
+                Diffuse [_MainTex]
+            }
+            Lighting On
+            SetTexture [_MainTex] {
+                ConstantColor (1,1,1,1)
+                Combine texture * primary DOUBLE
+            }
+        }
+    }
+
+    FallBack "Diffuse"
+}
+
+----------------------------------------------------------------------------------------------------------------------
+In this example, the custom "MyShader" is the primary shader, but if it cannot be executed, Unity will fall back to the "SimpleShader".
+The "SimpleShader" uses a basic diffuse lighting model to render the object, and the Fallback keyword is used to specify the built-in "Diffuse" 
+shader as a final fallback in case neither the custom "MyShader" nor the "SimpleShader" can be executed.
