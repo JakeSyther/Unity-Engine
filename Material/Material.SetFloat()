@@ -1,0 +1,46 @@
+Material.SetFloat is a method that allows you to set a float value for a specific property of a material. 
+This method is often used to control the appearance of an object at runtime.
+
+Here's an example of how to use Material.SetFloat:
+
+-------------------------------------------------------------------------
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    public Material material;
+    public float cutoff;
+
+    void Update()
+    {
+        // Set the cutoff property of the material to the specified value
+        material.SetFloat("_Cutoff", cutoff);
+    }
+}
+-------------------------------------------------------------------------
+
+In this example, we have a Material object and a float variable named cutoff. We want to control the alpha cutoff value of the material,
+which determines which parts of the object are visible and which are transparent.
+
+To do this, we call the SetFloat method on the material and pass in two arguments: the name of the property we want to set, and the float value we want to set it to.
+In this case, we are setting the "_Cutoff" property of the material to the cutoff variable.
+
+Note that the name of the property we want to set is specified as a string with an underscore at the beginnig. This is because material properties in Unity are 
+typically stored as shader parameters, and shader parameters are conventionally named with an underscore to distinguish them from other variables in the script.
+
+MAterial.SetFloat can be used to control a variety of materials properties, such as color values, metallic and smoothness values, and emmision values. By changing 
+properties at runtime, you can create and interactive visuals in your Unity scene.
+
+Different materials in Unity can use different shaders, and each shader has a different set of properties that can be set with "Material.SetFloat". For example,
+a material that uses the Standart shader in Unity will have properties like "_Color", "_Metallic", "_Smoothness", and "_NormalMap" 
+that can be set with "Material.SetFloat"
+
+On the other hand, a material that uses a custom shader created by the user may have a different set of properties available,
+and these properties may not have the same naming conventions as the properties on the Standard shader.
+
+Finally, it's worth noting that some shader properties may not be exposed in the inspector by default.
+This means that you won't be able to set the property directly from the inspector, but you can still set it using Material.SetFloat
+(or the appropriate method for the property type). To do this, you'll need to know the name of the property and the appropriate value to set it to.
+
+
+
