@@ -1,0 +1,33 @@
+Material.SetTexture is a method in Unity's Material class that allows you to set a texture for a specific property of a material. 
+This method is often used to change the appearance of an object at runtime by swapping textures.
+
+
+Here is an example of how to use Material.SetTexture:
+
+-----------------------------------------------------------------------------------------
+
+public class Example : MonoBehaviour
+{
+    public Material material;
+    public Texture texture;
+
+    void Start()
+    {
+        // Set the main texture property of the material to the specified texture
+        material.SetTexture("_MainTex", texture);
+    }
+}
+---------------------------------------------------------------------------------------
+
+In this example, we have a Material object and a Texture object. We want to set the main texture property of the material to the specified texture.
+
+To do this, we call the SetTexture method on the material and pass in two arguments:
+the name of the property we want to set, and the texture we want to set it to. In this case, we are setting the "_MainTex" property of the material
+to the texture variable.
+
+Note that the name of the property we want to set is specified as a string with an underscore at the beginning.
+This is because material properties in Unity are typically stored as shader parameters,
+and shader parameters are conventionally named with an underscore to distinguish them from other variables in the script.
+
+Material.SetTexture can be used to set textures for a variety of material properties, such as normal maps, emission maps, and reflection maps.
+By swapping textures at runtime, you can create dynamic and interactive visuals in your Unity scene.
