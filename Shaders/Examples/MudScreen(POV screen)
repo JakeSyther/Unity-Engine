@@ -1,0 +1,159 @@
+///////////////////////////////////////////////////////////////////////////////////
+////// Class : Shader                                                     /////////
+////// DESC  : Mud screen effect. It requires texture with a normal map,  /////////
+///////////////////////////////////////////////////////////////////////////////////
+Shader "Hidden/CameraBloodEffect"
+{
+    Properties
+    {
+        _MainTex    ("Texture"      , 2D)            = "white" {}
+        _BloodTex   ("Mud Texture", 2D)            = "white" {}
+        _BloodBump  ("Mud Normal" , 2D)            = "bump" {}
+        _Distortion ("Mud Dirtortion", Range(0,2)) = 1
+        _BloodAmount("Mud Amount"    , Range(0,1)) = 0
+        
+    }
+    SubShader
+    {
+        // No culling or depth
+        Cull Off ZWrite Off ZTest Always
+
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+
+            #include "UnityCG.cginc"
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
+
+            v2f vert (appdata v)
+            {
+                v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
+                return o;
+            }
+
+            sampler2D _MainTex;
+            sampler2D _MudTex;
+            sampler2D _MudBump;
+            float     _MudAmount;
+            float     _Distortion;
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                 // Sample the Source Texture 
+                fixed4 srcCol   = tex2D ( _MainTex,  i.uv );
+                fixed4 bloodCol = tex2D ( _MudTex, i.uv );
+                bloodCol.a      = saturate (bloodCol.a + (_MudAmount * 2 - 1 ));
+
+                fixed4 testColor = fixed4(0,0,1,0);
+                fixed4 overlayCol = srcCol * mudCol * 2 * testColor;
+                fixed4 output   = lerp( srcCol, overlayCol, bloodCol.a);
+                return output;
+            }
+            ENDCG
+        }
+    }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////
+////// Class : CameraMudEffect.cs - Attach to Camera (POV)                /////////
+////// DESC  : Mud screen effect. It requires texture with a normal map,  /////////
+///////////////////////////////////////////////////////////////////////////////////
+using UnityEngine;
+using System.Collections;
+
+[ExecuteInEditMode]
+public class CameraMudEffect : MonoBehaviour
+{
+    // Inspector Assigned
+    [SerializeField]
+    private Texture2D _mudTexture   = null;
+    
+    [SerializeField]
+    private Texture2D _mudNormalMap = null;
+
+    [SerializeField] 
+    private float     _mudAmount    = 0.0f;
+
+    [SerializeField]
+    private float     _minMudAmount = 0.0f;
+
+    [SerializeField] 
+    private float     _distortion     = 1.0f;
+
+    [SerializeField]
+    private bool      _autoFade       = true;
+
+    [SerializeField]
+    private float     _fadeSpeed      = 0.05f;
+
+    [SerializeField]
+    private Shader    _shader         = null;
+
+    //Private
+    private Material  _material       = null;
+
+    // Properties
+    public float mudAmount    { get { return      _mudAmount; } 
+                                  set {_bloodAmount    = value; } } 
+
+    public float minMudAmount { get { return   _minMudAmount; }
+                                  set {_minMudAmount = value; } }
+
+    public float fadeSpeed      { get { return        _fadeSpeed; }
+                                  set { _fadeSpeed     = value; } }
+
+    public bool  autoFade       { get { return         _autoFade; }
+                                  set { _autoFade      = value; } }
+
+    void Update()
+    {
+        if(_autoFade)
+        {
+            _mudAmount -= _fadeSpeed * Time.deltaTime;
+            _mudAmount = Mathf.Max(_mudAmount, _minMudAmount);
+        }
+    }
+
+    private void OnRenderImage(RenderTexture src, RenderTexture dest)
+    {
+        if(_shader   == null) return;
+
+        if(_material == null)
+        {
+            _material = new Material(_shader);
+        }
+
+        if(_material == null) return;
+
+        // Send data into Shader
+        if(_mudTexture !=null)
+           _material.SetTexture ("_MudTex",  _mudTexture);
+
+        if(_bloodNormalMap!=null)
+           _material.SetTexture ("_MudBump", _mudNormalMap);
+
+        _material.SetFloat      ("_Distortion" , _distortion);
+        _material.SetFloat      ("_MudAmount", _mudAmount);
+
+        // Perform Image Effect
+        Graphics.Blit(src, dest, _material );
+
+    }
+}
+
