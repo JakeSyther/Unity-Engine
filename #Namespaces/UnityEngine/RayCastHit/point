@@ -1,0 +1,73 @@
+The RaycastHit.point is a property in Unity that returns the point in 3D space where a RaycastHit intersects with a collider.
+This point represents the location in world space where the ray hits the object's surface.
+
+When a raycast hits a collider, the RaycastHit object is populated with various pieces of information about the hit, such as the point of contact,
+the normal at the point of contact, and the distance from the ray origin to the hit point. The point property specifically refers to 
+the 3D vector representing the location of the hit.
+
+This property can be useful for determining where to apply effects or damage in a game. 
+For example, if a player shoots a projectile at an enemy and the projectile hits the enemy,
+the point property can be used to determine where the enemy was hit, which could be used to 
+determine how much damage to apply to the enemy.
+
+It's important to note that the point property is only set when the RaycastHit object is populated,
+meaning that a hit must occur for this property to be valid. If the raycast does not hit anything, 
+the point value will not be set and may return unexpected results.
+
+
+
+Here's an example that demonstrates how to use the RaycastHit.point property:
+
+Let's say you have a game where the player shoots a ray from their gun and it hits a target.
+You want to determine where the ray hits the target so you can apply damage to that location.
+
+Here's an example script that does this:
+
+--------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class Gun : MonoBehaviour
+{
+    public int damage = 10;
+    public LayerMask targetLayer;
+    public Transform gunTip;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Create a ray from the gun tip in the direction of the gun's forward vector
+            Ray ray = new Ray(gunTip.position, transform.forward);
+
+            // Check if the ray hits a target on the target layer
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, targetLayer))
+            {
+                // Apply damage to the target
+                Health targetHealth = hit.collider.GetComponent<Health>();
+                if (targetHealth != null)
+                {
+                    targetHealth.TakeDamage(damage, hit.point);
+                }
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------
+In this example, we have a Gun script attached to the player's gun. The script has a few public variables that can be set in the Unity editor:
+
+- damage: The amount of damage to apply to the target when hit.
+- targetLayer: The layer that represents the target objects.
+- gunTip: The position where the ray should originate from.
+
+
+In the Update function, we check if the player has pressed the left mouse button. 
+If they have, we create a new ray from the gunTip position in the direction of the gun's forward vector.
+We then use Physics.Raycast to check if the ray hits any objects on the targetLayer.
+
+If the ray does hit a target object, we retrieve the Health component from the object (assuming it has one) and call its TakeDamage function, 
+passing in the amount of damage to apply and the hit.point value as the location of the hit. 
+The hit.point value is the location in world space where the ray hit the target. We use this to apply damage to the correct location on the target.
+
+
+
