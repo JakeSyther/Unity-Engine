@@ -1,0 +1,29 @@
+"ScreenOrientation" is an enumeration that represents the possible orientations of the device screen. 
+
+The enumeration has the following values:
+
+- Portrait           : The device is in portrait mode with the screen in the vertical orientation.
+- PortraitUpsideDown : The device is in portrait mode with the screen in the vertical orientation, but upside down.
+- LandscapeLeft      : The device is in landscape mode with the screen in the horizontal orientation, rotated counterclockwise.
+- LandscapeRight     : The device is in landscape mode with the screen in the horizontal orientation, rotated clockwise.
+- AutoRotation       : The device automatically switches between portrait and landscape modes based on its orientation.
+- Landscape          : The device is in landscape mode with the screen in the horizontal orientation, but the direction of rotation is not specified.
+
+Here are some methods and properties in the Screen class that use ScreenOrientation:
+
+- Screen.orientation                    : Gets or sets the current screen orientation.
+- Screen.autorotateToPortrait           : Gets or sets a value indicating whether the device can automatically rotate to portrait orientation.
+- Screen.autorotateToPortraitUpsideDown : Gets or sets a value indicating whether the device can automatically rotate to upside-down portrait orientation.
+- Screen.autorotateToLandscapeLeft      : Gets or sets a value indicating whether the device can automatically rotate to landscape orientation 
+  with the screen rotated counterclockwise.
+- Screen.autorotateToLandscapeRight     : Gets or sets a value indicating whether the device can automatically rotate to landscape orientation 
+  with the screen rotated clockwise.
+- Screen.orientationChange              : An event that is raised when the screen orientation changes.
+
+In general, ScreenOrientation and the Screen class are used to control and query the display settings of your Unity game or application.
+By using these properties and methods, you can ensure that your app is displayed in the correct orientation,
+and that it responds appropriately to changes in screen size and resolution.
+
+
+
+
