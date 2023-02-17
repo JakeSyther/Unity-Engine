@@ -1,0 +1,43 @@
+In Unity, a LayerMask is a bitmask that represents a set of layers. Each bit in the mask corresponds to a layer, and a layer is considered part 
+of the set if its corresponding bit is set to 1. LayerMask is primarily used to filter out game objects during physics raycasting, 
+collision detection, and other operations that involve multiple game objects.
+
+Here are some of the key functions and methods of the LayerMask class in Unity:
+
+Functions:
+
+- LayerToName(int layer)             : Returns the name of the layer with the given index.
+- NameToLayer(string layerName)      : Returns the index of the layer with the given name.
+- GetMask(params string[] layerNames): Returns a LayerMask with the bits set for the given layer names.
+- GetMask(params int[] layerIndices) : Returns a LayerMask with the bits set for the given layer indices.
+- op_Implicit(int intVal)            : Implicitly converts an integer to a LayerMask.
+
+Properties:
+
+- value: The integer value of the LayerMask.
+
+Operators:
+
+- "|" (bitwise OR): Combines two LayerMask objects using a bitwise OR operation.
+- "&" (bitwise AND): Applies a bitwise AND operation to two LayerMask objects.
+
+
+LayerMask can be used to filter out objects that should not be affected by a given operation. 
+For example, if you have a raycast that should only collide with objects on a particular set of layers, 
+you can create a LayerMask that includes only those layers, and use it to filter the results of the raycast.
+
+Here's an example of how to use LayerMask to filter the results of a raycast:
+--------------------------------------------------------------------------------------------------
+int layerMask = LayerMask.GetMask("Player", "Obstacle");
+RaycastHit hit;
+
+if (Physics.Raycast(transform.position, transform.forward, out hit, 100, layerMask))
+{
+    Debug.Log("Hit object with tag: " + hit.collider.tag);
+}
+--------------------------------------------------------------------------------------------------
+
+In this example, the layerMask variable is set to include only the "Player" and "Obstacle" layers. 
+The Physics.Raycast method is called with this layer mask, so the resulting RaycastHit object will only contain information about objects on those layers.
+The Debug.Log statement prints the tag of the object that was hit.
+
