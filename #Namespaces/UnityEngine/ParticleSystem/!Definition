@@ -1,3 +1,28 @@
+Structures :
+
+- MainModule
+- EmissionModule
+- ShapeModule
+- VelocityOverLifetimeModule
+- LimitVelocityOverLifetimeModule
+- InheritVelocityModule
+- ForceOverLifetimeModule
+- ColorOverLifetimeModule
+- ColorBySpeedModule
+- SizeOverLifetimeModule
+- SizeBySpeedModule
+- RotationOverLifetimeModule
+- RotationBySpeedModule
+- ExternalForcesModule
+- NoiseModule
+- CollisionModule
+- TriggerModule
+- SubEmittersModule
+- TextureSheetAnimationModule
+- LightsModule
+- TrailModule
+
+
 The ParticleSystem is a Unity component that allows you to create and manipulate particles in your game or application. 
 The component can be used for a wide range of effects such as explosions, fire, smoke, rain, snow, and more.
 
