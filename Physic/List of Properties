@@ -1,6 +1,6 @@
 Some of the most important physics properties in Unity:
 
-igidbody          : A component that represents the physics properties of a game object, such as mass, velocity, and angular velocity.
+Rigidbody         : A component that represents the physics properties of a game object, such as mass, velocity, and angular velocity.
 
 Colliders         : Components that define the shape of a game object for the purposes of physics simulations.
                   They can be used to detect collisions with other objects and to apply forces to the object.
