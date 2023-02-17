@@ -16,7 +16,15 @@ The ParticleSystem component also has a number of methods and events that you ca
 - Stop(): Stops playing the particle system.
 - Pause(): Pauses the particle system.
 - Clear(): Removes all particles from the system.
+- Emit(int count): Emits a given number of particles immediately.
+- PauseEmitting(): Pauses emitting new particles.
+- ResumeEmitting(): Resumes emitting new particles.
 - Simulate(float t): Advances the particle system by a given amount of time, allowing you to manually control the behavior of the particles.
+- SetParticles(Particle[] particles, int count): Sets the particles of the system to the specified array.
+- GetParticles(Particle[] particles, int count): Gets the particles of the system and places them in the specified array.
+- TriggerSubEmitter(int subEmitterIndex): Triggers a sub-emitter at the given index.
+- IsAlive(bool withChildren): Returns true if any particles in the system are alive.
+
 
 
 In addition, the ParticleSystem component can be combined with other Unity components and features to create more complex and dynamic particle effects. 
