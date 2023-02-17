@@ -1,0 +1,85 @@
+Rigidbody is a class in Unity that represents the physical properties of a game object, such as mass, velocity, and angular velocity.
+It is a component that can be attached to a game object to simulate realistic physics behavior, such as gravity, forces, and collisions.
+
+When a Rigidbody component is attached to a game object, it can be affected by forces such as gravity, wind, and other game objects colliding with it. 
+It can also be used to apply forces to other game objects and to detect collisions with them.
+
+An example of how to use Rigidbody in Unity:
+
+Suppose you want to create a game where the player can pick up and throw objects.
+You would create a game object for the player and attach a Rigidbody component to it.
+You would also create game objects for the objects that can be picked up, such as boxes or barrels, and attach Rigidbody components to them as well.
+
+You would then write a script that allows the player to interact with the objects.
+For example, you could use the mouse or keyboard to pick up and throw objects.
+When the player clicks on an object, the script would set the Rigidbody component of the object to be kinematic,which means it will not be affected by forces. 
+The script would also set the Rigidbody component of the player to be the parent of the object, so that it moves with the player.
+
+When the player throws the object, the script would set the Rigidbody component of the object to be non-kinematic, which means it will be affected by forces.
+It would also apply a force to the object in the direction of the throw, based on the player's input.
+
+By using Rigidbody, you can create realistic physics-based interactions in your game, such as objects that move and bounce realistically,
+and characters that can be thrown and knocked around by other objects.
+
+
+
+
+Here's an example script that demonstrates how to use Rigidbody in Unity:
+
+----------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    public float throwForce = 10.0f;
+    private Rigidbody rb;
+    private Transform heldObject;
+    
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+    
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && heldObject == null)
+        {
+            // Raycast to check if there's an object to pick up
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 10.0f))
+            {
+                Rigidbody objectRb = hit.collider.GetComponent<Rigidbody>();
+                if (objectRb != null)
+                {
+                    // Pick up the object
+                    heldObject = objectRb.transform;
+                    heldObject.SetParent(transform);
+                    heldObject.localPosition = new Vector3(0, 1, 2);
+                    objectRb.isKinematic = true;
+                }
+            }
+        }
+        else if (Input.GetMouseButtonDown(1) && heldObject != null)
+        {
+            // Throw the object
+            heldObject.SetParent(null);
+            Rigidbody objectRb = heldObject.GetComponent<Rigidbody>();
+            objectRb.isKinematic = false;
+            objectRb.AddForce(transform.forward * throwForce, ForceMode.Impulse);
+            heldObject = null;
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------
+
+
+In this example, the script is attached to the player game object, which has a Rigidbody component attached to it. 
+When the player clicks the left mouse button, the script casts a ray to check if there's an object to pick up.
+If it finds a game object with a Rigidbody component, it picks it up by setting its isKinematic property to true and making it a child of the player game object.
+
+When the player clicks the right mouse button, the script throws the held object by setting its isKinematic property to false and adding 
+a force to it in the direction the player is facing.
+
+By using Rigidbody in this way, you can create a game where the player can pick up and throw objects using realistic physics-based interactions.
