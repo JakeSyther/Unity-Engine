@@ -1,0 +1,30 @@
+ScreenPointToRay is a method in the Camera class in Unity that converts a screen space point (specified in pixels) into a ray that can be
+used for things like physics raycasting or detecting mouse clicks. 
+The resulting ray starts at the camera's near plane and extends through the specified screen point in the camera's view.
+
+Here's the syntax for using ScreenPointToRay:
+---------------------------------------------------
+public Ray ScreenPointToRay(Vector3 position);
+---------------------------------------------------
+
+The position parameter specifies the screen point to convert, in pixels. This method returns a Ray object representing the resulting ray.
+
+
+
+Here's an example of how to use ScreenPointToRay to perform a physics raycast:
+------------------------------------------------------------------------------------------------------
+RaycastHit hit;
+Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+if (Physics.Raycast(ray, out hit))
+{
+    // A physics object was hit
+}
+------------------------------------------------------------------------------------------------------
+
+In this example, the ScreenPointToRay method is used to create a new ray that starts at the camera's near plane and extends through 
+the mouse position in the camera's view. This ray is then passed to the Physics.Raycast method, which performs a physics raycast using the given ray.
+If a physics object is hit, information about the hit is stored in the hit variable.
+
+Note that ScreenPointToRay can also be used to perform other types of raycasting, such as for detecting mouse clicks on objects in the scene.
+In general, this method is useful any time you need to convert a screen space point into a ray in the scene.
