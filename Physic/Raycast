@@ -1,0 +1,52 @@
+Physics.Raycast is a method provided by Unity's Physics class, which allows you to perform a raycast in a 3D scene.
+A raycast is a technique used in 3D graphics to determine whether a line segment, or ray, intersects with any colliders in the scene. 
+The method takes in a Ray object as an argument, which represents the ray to cast, and returns a bool value indicating whether the ray intersects with any colliders. 
+If the ray intersects with a collider, it also returns information about the intersection in the form of a RaycastHit object.
+
+Here's the syntax for Physics.Raycast:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public static bool Raycast(Ray ray, out RaycastHit hitInfo, float maxDistance = Mathf.Infinity, int layerMask = DefaultRaycastLayers,
+                           QueryTriggerInteraction queryTriggerInteraction = QueryTriggerInteraction.UseGlobal);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Here's a breakdown of each of the parameters:
+
+- ray: The Ray object representing the ray to cast.
+- hitInfo: A RaycastHit object that will be populated with information about the intersection if one is found.
+- maxDistance: The maximum distance to cast the ray. If no collider is found within this distance, the method will return false.
+- layerMask: A layer mask that determines which layers to include in the raycast. By default, this is set to the value of DefaultRaycastLayers, 
+  which includes all layers in the scene.
+- queryTriggerInteraction: An enum that determines whether the raycast should include trigger colliders. By default,
+  this is set to QueryTriggerInteraction.UseGlobal, which uses the global physics settings.
+
+
+
+Here's an example of how you might use Physics.Raycast in a script to detect collisions with a cube:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class RaycastExample : MonoBehaviour
+{
+    public Transform target;
+
+    void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.gameObject == target.gameObject)
+            {
+                Debug.Log("Hit target!");
+            }
+        }
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Physics.Raycast to cast a ray from the mouse position in the scene and detect whether it hits a target object.
+If it does, we print a message to the console.
+
