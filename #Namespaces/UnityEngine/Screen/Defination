@@ -1,0 +1,60 @@
+UnityEngine.Screen is a static class in the Unity engine that provides information about the screen and display settings.
+
+Here are some of the key properties and methods of the Screen class:
+
+- currentResolution: Returns the current screen resolution as a Resolution object.
+- fullScreen: Gets or sets whether the application should run in full-screen mode.
+- width: Gets the width of the screen in pixels.
+- height: Gets the height of the screen in pixels.
+- dpi: Gets the DPI (dots per inch) of the screen.
+- orientation: Gets the current screen orientation (portrait or landscape).
+- SetResolution(): Sets the screen resolution and display mode.
+
+These properties and methods can be used to customize the display settings of a Unity game or application, 
+such as changing the resolution, setting full-screen mode, or detecting the current screen DPI or orientation.
+
+For example, you could use the Screen.width and Screen.height properties to set the size of a UI element in relation to the screen size, 
+or use the Screen.fullScreen property to toggle between windowed and full-screen display modes.
+
+
+An example script that demonstrates some of the properties and methods of the Screen class:
+-------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class ScreenInfo : MonoBehaviour
+{
+    void Start()
+    {
+        // Get the current screen resolution
+        Resolution res = Screen.currentResolution;
+        Debug.Log("Current resolution: " + res.width + "x" + res.height);
+
+        // Get the screen DPI
+        float dpi = Screen.dpi;
+        Debug.Log("Screen DPI: " + dpi);
+
+        // Get the screen orientation
+        ScreenOrientation orientation = Screen.orientation;
+        Debug.Log("Screen orientation: " + orientation);
+
+        // Set the screen resolution to 800x600
+        Screen.SetResolution(800, 600, false);
+
+        // Check if the application is running in full-screen mode
+        bool isFullScreen = Screen.fullScreen;
+        Debug.Log("Is full-screen mode? " + isFullScreen);
+    }
+}
+-------------------------------------------------------------------------------------
+
+In this script, we first use the Screen.currentResolution property to get the current screen resolution and log it to the console. 
+We then use the Screen.dpi property to get the screen DPI and log it to the console as well.
+
+Next, we use the Screen.orientation property to get the current screen orientation and log it to the console.
+
+After that, we use the Screen.SetResolution() method to set the screen resolution to 800x600.
+
+Finally, we use the Screen.fullScreen property to check if the application is running in full-screen mode, and log the result to the console.
+
+This is just a basic example, but it shows how you can use the properties and methods of the Screen class to customize
+the display settings of your Unity game or application.
