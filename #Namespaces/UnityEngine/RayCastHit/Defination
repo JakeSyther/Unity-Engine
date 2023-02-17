@@ -1,0 +1,49 @@
+"RaycastHit" is a structure in Unity that represents the information returned by a raycast, including the point of intersection,
+the normal of the surface at the intersection point, the distance to the intersection, and the game object that was hit.
+
+Here are some of the key properties and methods of the RaycastHit structure:
+
+
+Properties:
+
+- point: The point in 3D space where the ray intersected with an object.
+- normal: The normal vector of the surface at the intersection point.
+- distance: The distance from the ray's origin to the intersection point.
+- collider: The collider component of the object that was hit.
+- rigidbody: The rigidbody component of the object that was hit (if it has one).
+- transform: The transform component of the object that was hit.
+- gameObject: The game object that was hit.
+
+
+Methods:
+
+- GetComponent<T>(): Returns the component of type T attached to the game object that was hit (if there is one).
+- TransformDirection(): Transforms a direction vector from local space to world space.
+
+
+
+Here is an example of how to use RaycastHit in a script:
+--------------------------------------------------------------------------------------------------------
+
+public class RaycastExample : MonoBehaviour
+{
+    public float maxDistance = 10f;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
+            {
+                Debug.Log("Hit object: " + hit.collider.gameObject.name);
+            }
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------
+In this example, the script casts a ray from the camera to the mouse position on the screen using Camera.main.ScreenPointToRay().
+If the ray hits an object within a maximum distance of maxDistance, the script logs the name of the hit object to the console using Debug.Log().
+The information about the hit is stored in a RaycastHit variable named hit.
+
