@@ -1,0 +1,51 @@
+The MainModule of the ParticleSystem in Unity is used to control the core settings of the particle system. 
+
+Here's a breakdown of some of the properties and methods of the MainModule:
+
+
+Properties:
+
+- duration        : The lifetime of the particle system in seconds.
+- loop            : A boolean value indicating whether the particle system should loop.
+- startDelay      : The amount of time in seconds to delay the start of the particle system.
+- startLifetime   : The initial lifetime of the particles in seconds.
+- startSpeed      : The initial speed of the particles.
+- startSize       : The initial size of the particles.
+- startRotation   : The initial rotation of the particles.
+- startColor      : The initial color of the particles.
+- gravityModifier : A multiplier for the force of gravity affecting the particles.
+- simulationSpace : The space in which to simulate the particle system.
+- maxParticles    : The maximum number of particles the system can have.
+- emission        : The settings for particle emission.
+- startRotation3D : A boolean value indicating whether particles should rotate in 3D space.
+
+Methods:
+
+- GetLifetimeLoss           : Returns the amount of lifetime the particles will lose each second.
+- GetSafeCollisionEventSize : Returns the recommended size for the array that will store collision events.
+- SetRandomSeed             : Sets the random seed for the particle system.
+- GetParticleCurrentSize    : Returns the current size of a given particle.
+- The MainModule can be accessed via the main property of a ParticleSystem.
+
+
+Here's an example of how you might use it to change the initial size and color of particles:
+
+------------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class ParticleSystemExample : MonoBehaviour
+{
+    private ParticleSystem _particleSystem;
+
+    private void Start()
+    {
+        _particleSystem = GetComponent<ParticleSystem>();
+        var main = _particleSystem.main;
+        main.startSize = 0.2f;
+        main.startColor = Color.red;
+    }
+}
+------------------------------------------------------------------------------------------------------------
+
+In this example, the MainModule is accessed via the "main" property of the ParticleSystem and the startSize and startColor properties are
+updated to modify the initial size and color of the particles.
