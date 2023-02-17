@@ -21,3 +21,21 @@ Developers can create their own custom components by inheriting from the Compone
 Overall, the UnityEngine.Component class is a critical part of the Unity game engine that provides the basic building blocks
 for creating custom game mechanics and developing complex game systems.
 
+
+
+
+Here's a list of some of the most commonly used functions defined in the UnityEngine.Component class:
+
+- GetComponent: Returns the first component of the specified type that is attached to the same GameObject as the calling script.
+- GetComponents: Returns an array of all components of the specified type that are attached to the same GameObject as the calling script.
+- SendMessage: Calls the specified method on all components of the same type that are attached to the same GameObject as the calling script.
+- BroadcastMessage: Calls the specified method on all components of the same type that are attached to the same GameObject as the calling script,
+  including on the calling script itself.
+- CompareTag: Returns true if the GameObject has a tag that matches the specified string.
+- Invoke: Invokes a method after a specified amount of time has elapsed.
+- InvokeRepeating: Invokes a method repeatedly at a specified interval.
+- CancelInvoke: Cancels a previously scheduled method invocation.
+- IsInvoking: Returns true if a method is currently scheduled for invocation.
+- StartCoroutine: Starts a coroutine that runs independently of the calling script.
+- StopCoroutine: Stops a previously started coroutine.
+- StopAllCoroutines: Stops all coroutines that are currently running on the calling script.
