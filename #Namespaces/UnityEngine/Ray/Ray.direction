@@ -15,7 +15,51 @@ When you cast a Ray, the direction of the Ray determines the direction in which 
 When the ray collides with a Collider, the RaycastHit object that is returned contains information about the point where the ray hit the collider, 
 as well as the normal of the surface at the point of collision.
 
-An example of creating a Ray with a direction vector:
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class RaycastExample : MonoBehaviour
+{
+    public float rayDistance = 100f;
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit, rayDistance))
+            {
+                Debug.Log("Hit at point: " + hit.point);
+                Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.red, 2f);
+            }
+            else
+            {
+                Debug.DrawRay(ray.origin, ray.direction * rayDistance, Color.green, 2f);
+            }
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+In this example, we are creating a Ray from the mouse position on the screen using ScreenPointToRay.
+Then we are using Physics.Raycast to check if the ray hits any colliders within a maximum distance of rayDistance.
+
+If the ray hits a collider, we print the hit point to the console and draw a red debug ray from the Ray's origin in the direction
+of the Ray's direction times rayDistance.
+
+If the ray does not hit anything, we draw a green debug ray from the Ray's origin in the direction of the Ray's direction times rayDistance.
+
+The ray.direction property is used to determine the direction of the ray from its origin. In this example, 
+we are using it to draw the debug ray in the correct direction.
+
+
+
+An another example of creating a Ray with a direction vector:
 
 Let's say you have a player character in your game, and you want to fire a ray from the player's position in the direction they are facing.
 You can use the direction property of a Ray to do this.
