@@ -27,31 +27,6 @@ Methods:
 - GetParticleCurrentSize    : Returns the current size of a given particle.
 - The MainModule can be accessed via the main property of a ParticleSystem.
 
-Structures :
-
-- MainModule
-- EmissionModule
-- ShapeModule
-- VelocityOverLifetimeModule
-- LimitVelocityOverLifetimeModule
-- InheritVelocityModule
-- ForceOverLifetimeModule
-- ColorOverLifetimeModule
-- ColorBySpeedModule
-- SizeOverLifetimeModule
-- SizeBySpeedModule
-- RotationOverLifetimeModule
-- RotationBySpeedModule
-- ExternalForcesModule
-- NoiseModule
-- CollisionModule
-- TriggerModule
-- SubEmittersModule
-- TextureSheetAnimationModule
-- LightsModule
-- TrailModule
-
-
 
 Here's an example of how you might use it to change the initial size and color of particles:
 
