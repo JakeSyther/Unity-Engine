@@ -39,3 +39,6 @@ Here's a list of some of the most commonly used functions defined in the UnityEn
 - StartCoroutine: Starts a coroutine that runs independently of the calling script.
 - StopCoroutine: Stops a previously started coroutine.
 - StopAllCoroutines: Stops all coroutines that are currently running on the calling script.
+
+These functions are just a few examples of the many functions that are defined in the UnityEngine.Component class. 
+By using these functions, game developers can manipulate and customize the behavior of components in their games and create complex game mechanics.
