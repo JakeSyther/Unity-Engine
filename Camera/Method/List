@@ -1,0 +1,17 @@
+There are many methods available in the Camera class in Unity. Here's a list of some of the most commonly used methods:
+
+- ScreenPointToRay: Converts a screen space point to a ray that can be used for physics raycasting or other purposes.
+- WorldToScreenPoint: Converts a world space point to a screen space point, in pixels.
+- ViewportToWorldPoint: Converts a point in the camera's viewport (specified as a normalized coordinate between 0 and 1) to a world space point.
+- ScreenToWorldPoint: Converts a screen space point to a world space point.
+- ViewportToScreenPoint: Converts a point in the camera's viewport to a screen space point, in pixels.
+- WorldToViewportPoint: Converts a world space point to a point in the camera's viewport (specified as a normalized coordinate between 0 and 1).
+- WorldToCameraMatrix: Returns the matrix that transforms points from world space to camera space.
+- CameraToWorldMatrix: Returns the matrix that transforms points from camera space to world space.
+- CalculateObliqueMatrix: Calculates an oblique projection matrix for the camera.
+- Render: Renders the camera's view to a render texture or the screen.
+- ResetProjectionMatrix: Resets the camera's projection matrix to its default value.
+
+
+These are just a few of the many methods available in the Camera class. 
+Each method has its own specific purpose and usage, and the full list of methods can be found in the Unity documentation.
