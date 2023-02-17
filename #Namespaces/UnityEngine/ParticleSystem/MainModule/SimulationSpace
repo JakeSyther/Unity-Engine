@@ -1,0 +1,121 @@
+The simulationSpace property of the ParticleSystem.MainModule struct in Unity determines the coordinate space in which the particle system simulation is performed.
+It is an enumeration type property that can be set to one of the following values:
+
+- SimulationSpace.Local: The particle system simulates in the local coordinate space of the transform to which it is attached. 
+  This means that the particles move and rotate along with the object to which the particle system is attached.
+
+- SimulationSpace.World: The particle system simulates in the world coordinate space, independent of the transform to which it is attached. 
+  This means that the particles do not move or rotate with the object to which the particle system is attached.
+
+- SimulationSpace.Custom: The particle system simulates in a custom coordinate space that you can specify using the customSimulationSpace property. 
+  This can be useful if you want to simulate the particles relative to a specific object or point in your scene.
+  
+  
+  
+  
+  
+  
+ An example that shows how to set the simulationSpace property of a ParticleSystem component to SimulationSpace.Local:
+----------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class ParticleLocalSimulation : MonoBehaviour
+{
+    public ParticleSystem particles;
+
+    void Start()
+    {
+        // Set the particle system's simulation space to local
+        var main = particles.main;
+        main.simulationSpace = ParticleSystemSimulationSpace.Local;
+    }
+
+    void Update()
+    {
+        // Emit particles at the object's position
+        particles.transform.position = transform.position;
+        particles.Emit(10);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, the SimulationSpace property of the MainModule is set to SimulationSpace.Local. 
+This means that the particle system will be simulated in local space, relative to the transform of the particle system game object.
+
+The Update method emits particles at the position of the game object that this script is attached to, so the particles will move along with the game object.
+  
+  
+  
+  
+    
+  
+  
+  
+An example that shows how to set the simulationSpace property of a ParticleSystem component to SimulationSpace.World:
+----------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class ParticleSystemExample : MonoBehaviour
+{
+    private ParticleSystem particleSystem;
+
+    void Start()
+    {
+        particleSystem = GetComponent<ParticleSystem>();
+
+        // Set simulation space to world
+        var mainModule = particleSystem.main;
+        mainModule.simulationSpace = ParticleSystemSimulationSpace.World;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we first get a reference to the ParticleSystem component attached to the same game object as this script. 
+Then we access the main property of the particle system to get the MainModule struct.
+Finally, we set the simulationSpace property of the MainModule struct to SimulationSpace.World. 
+This will cause the particle system to simulate in world space, and the particles will not move or rotate with the game object.
+
+
+
+
+
+
+An example that shows how to set the simulationSpace property of a ParticleSystem component to SimulationSpace.Custom:
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class ParticleCustomSimulation : MonoBehaviour
+{
+    public ParticleSystem particles;
+    public Transform simulationSpace;
+
+    void Start()
+    {
+        // Set the particle system's simulation space to custom
+        var main = particles.main;
+        main.simulationSpace = ParticleSystemSimulationSpace.Custom;
+        main.customSimulationSpace = simulationSpace;
+    }
+
+    void Update()
+    {
+        // Emit particles at the custom simulation space's position
+        particles.transform.position = simulationSpace.position;
+        particles.Emit(10);
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the SimulationSpace property of the MainModule is set to SimulationSpace.Custom.
+This means that the particle system will be simulated in a custom space that is specified using the customSimulationSpace property.
+
+The simulationSpace field is a reference to a transform that will be used as the custom simulation space. 
+In this example, it is set to another game object in the scene.
+The position of the particle system is set to the position of this custom simulation space, so the particles will move along with it.
