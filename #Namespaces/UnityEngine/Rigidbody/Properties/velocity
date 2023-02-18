@@ -1,0 +1,44 @@
+The Rigidbody.velocity property is a vector that represents the current linear velocity of the rigidbody in three-dimensional space.
+It is used to set or get the velocity of the object in units per second.
+
+For example, if you want to add a force to the rigidbody to make it move, you can set its velocity directly.
+Let's say you have a player object with a rigidbody component and you want to make it move in the direction of a user input.
+You can do that by adding a force to the player's rigidbody using the velocity property:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PlayerController : MonoBehaviour
+{
+    public float moveSpeed = 10f;
+    Rigidbody rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+
+        rb.velocity = movement * moveSpeed;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In the above example, we get a reference to the rigidbody component on the player object in the Start function, 
+and then in the FixedUpdate function we get user input for horizontal and vertical movement.
+We then create a new vector movement and set it to the horizontal and vertical input. 
+Finally, we set the velocity of the rigidbody to the movement vector multiplied by the moveSpeed variable.
+This will cause the player object to move in the direction of the user input.
+
+Note that the velocity property is affected by forces and gravity, so you may need to adjust the physics settings to get the desired behavior.
+Additionally, it is recommended to modify the velocity of a rigidbody in the FixedUpdate function rather than
+the Update function to ensure that physics calculations are performed correctly.
+
+
+
