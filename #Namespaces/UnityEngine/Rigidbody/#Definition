@@ -1,0 +1,44 @@
+Rigidbody is a component that allows a game object to be affected by physics, such as gravity and collisions.
+It is used to simulate realistic movements of objects in a scene.
+
+Properties:
+
+- velocity                : The velocity vector of the rigidbody. Modifying this property changes the velocity of the rigidbody.
+- angularVelocity         : The angular velocity of the rigidbody. Modifying this property changes the rotational velocity of the rigidbody.
+- mass                    : The mass of the rigidbody. Increasing the mass of a rigidbody makes it more difficult to move or accelerate.
+- drag                    : The amount of air resistance that affects the rigidbody. Higher values of drag result in a slower deceleration of the rigidbody.
+- angularDrag             : The amount of air resistance that affects the angular velocity of the rigidbody.
+                            Higher values of angularDrag result in a slower deceleration of the rotational velocity.
+- useGravity              : A flag indicating whether the rigidbody is affected by gravity.
+- isKinematic             : A flag indicating whether the rigidbody is moved by the physics simulation or not.
+- constraints             : The constraints applied to the rigidbody, such as freezing the position or rotation in certain directions.
+
+
+Methods:
+
+- AddForce                : Applies a force to the rigidbody at a given position.
+- AddRelativeForce        : Applies a force to the rigidbody relative to its local coordinate system.
+- AddTorque               : Applies a torque to the rigidbody.
+- AddRelativeTorque       : Applies a torque to the rigidbody relative to its local coordinate system.
+- MovePosition            : Moves the rigidbody to a given position.
+- MoveRotation            : Rotates the rigidbody to a given rotation.
+- Sleep                   : Forces the rigidbody to enter a sleep state if it meets certain criteria.
+- WakeUp                  : Wakes up the rigidbody if it is in a sleep state.
+- ClosestPointOnBounds    : Returns the closest point on the bounding box of the rigidbody to a given point.
+- GetPointVelocity        : Returns the velocity of a point on the rigidbody.
+- GetRelativePointVelocity: Returns the velocity of a point on the rigidbody relative to its local coordinate system.
+
+Events:
+
+- OnCollisionEnter        : Raised when a collision occurs with another collider.
+- OnCollisionStay         : Raised each frame while a collision is occurring with another collider.
+- OnCollisionExit         : Raised when a collision with another collider ends.
+- OnTriggerEnter          : Raised when a trigger collider is entered.
+- OnTriggerStay           : Raised each frame while the rigidbody is inside a trigger collider.
+- OnTriggerExit           : Raised when the rigidbody leaves a trigger collider.
+
+
+Structures:
+
+Collision                 : Contains information about a collision event, including the contacts and the objects involved in the collision.
+ContactPoint              : Contains information about a contact point between two colliders.
