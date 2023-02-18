@@ -1,0 +1,48 @@
+In Unity, the isKinematic property of a Rigidbody component determines whether the object is affected by physics forces or not.
+
+When isKinematic is set to true, the object will not be affected by physics forces such as gravity, collisions, and forces applied by other objects. 
+Instead, it can only be moved by directly manipulating its transform component.
+
+An example:
+
+Let's say you have a Rigidbody attached to a cube and isKinematic is set to true. 
+If you apply a force to the cube with AddForce() function, the cube will not be moved by the force,
+but it can still be moved by directly setting its position or rotation through the transform component.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class KinematicExample : MonoBehaviour
+{
+    Rigidbody rb;
+    public float speed = 10.0f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+    }
+
+    void Update()
+    {
+        // Move the cube left and right with arrow keys
+        float horizontalInput = Input.GetAxis("Horizontal");
+        Vector3 movement = new Vector3(horizontalInput, 0, 0);
+        transform.position += movement * speed * Time.deltaTime;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision Detected");
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+In this example, the Rigidbody component is set to isKinematic = true in the Start() function. 
+As a result, the cube will not be affected by physics forces and can only be moved by directly manipulating its transform.
+
+However, even though the cube is not affected by physics forces, it can still detect collisions with other objects.
+In the OnCollisionEnter() function, a debug message will be printed whenever the cube collides with another object.
