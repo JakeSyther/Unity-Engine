@@ -1,0 +1,44 @@
+GetBehaviours is a method in the Animator class in Unity that allows you to retrieve a list of all the StateMachineBehaviour scripts attached to an Animator component.
+
+Here's the definition of the GetBehaviours method:
+
+---------------------------------------------------------------
+public T[] GetBehaviours<T>() where T : StateMachineBehaviour;
+---------------------------------------------------------------
+
+As you can see, it's a generic method that takes a type parameter T which must be a StateMachineBehaviour or a subclass of it.
+The method returns an array of type T which contains all the StateMachineBehaviour scripts attached to the Animator component.
+
+
+
+An example of how you can use GetBehaviours method to retrieve all the StateMachineBehaviour scripts attached to an Animator component:
+------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class MyScript : MonoBehaviour
+{
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+
+        // Get all StateMachineBehaviour scripts attached to the Animator component
+        StateMachineBehaviour[] behaviours = animator.GetBehaviours<StateMachineBehaviour>();
+        foreach (var behaviour in behaviours)
+        {
+            // Do something with each behaviour
+            Debug.Log(behaviour.GetType().Name);
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we retrieve a reference to the Animator component attached to the same game object as this script. 
+Then, we use the GetBehaviours method to get an array of all the StateMachineBehaviour scripts attached to the Animator.
+We loop through the array and print the name of each StateMachineBehaviour script using Debug.Log().
+
+Note that you can use any subclass of StateMachineBehaviour as the type parameter for GetBehaviours.
+This allows you to retrieve only a specific type of StateMachineBehaviour scripts if you know exactly what you're looking for.
