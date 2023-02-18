@@ -1,0 +1,42 @@
+"nimatorStateInfo" is a structure that represents information about the current state of an Animator.
+Here are some of its main properties and methods:
+
+Properties:
+
+- short fullPathHash: The hash ID of the full path of the state.
+- short shortNameHash: The hash ID of the short name of the state.
+- float length: The duration of the animation clip.
+- float normalizedTime: The current time of the animation clip as a value between 0 and 1.
+- float speed: The current playback speed of the animation clip.
+- int tagHash: The hash ID of the tag of the state.
+- bool loop: Whether the animation clip is set to loop or not.
+- bool isName: Whether the state is matched by name or by hash ID.
+
+
+Methods:
+
+- IsName(string name): Returns true if the state has the specified name.
+- IsTag(string tagName): Returns true if the state has the specified tag.
+- IsTag(int tagHash): Returns true if the state has the specified tag hash.
+- IsName(int nameHash): Returns true if the state has the specified name hash.
+- GetHashCode(): Returns the hash code of the AnimatorStateInfo.
+
+
+In addition, you can access the AnimatorStateInfo of the current state using the Animator.GetCurrentAnimatorStateInfo method.
+
+Here is an example:
+------------------------------------------------------------------------------------------------------------------------
+
+Animator animator = GetComponent<Animator>();
+AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+if (stateInfo.IsName("Jump"))
+{
+    // Do something specific for the Jump state
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+In this example, we get the current state of the Animator and check if it is the "Jump" state. If it is, we perform some specific actions for that state.
+
+
