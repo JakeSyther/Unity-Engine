@@ -1,0 +1,59 @@
+The SetBool method in Unity is used to set the value of a bool parameter in an animator controller.
+
+Here's a breakdown of its parameters and an example of how to use it:
+
+
+Parameters:
+- name (string): The name of the bool parameter to set.
+- value (bool): The value to set the parameter to.
+
+
+Example:
+Let's say you have an animator controller with a bool parameter called "isWalking". 
+You want to set the value of this parameter to true when the player starts moving and false when the player stops.
+
+Here's how you would use the SetBool method in this case:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    private Animator anim;
+    private Rigidbody rb;
+    private bool isMoving;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        // Get the input from the player
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+
+        // Set the velocity of the player based on the input
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rb.velocity = movement * 5;
+
+        // Set the "isWalking" parameter in the animator
+        if (movement != Vector3.zero)
+        {
+            isMoving = true;
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            isMoving = false;
+            anim.SetBool("isWalking", false);
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the SetBool method is used to set the value of the "isWalking" parameter in the animator based on whether the player is moving or not.
+If the player is moving, the "isWalking" parameter is set to true, and if the player is not moving, the "isWalking" parameter is set to false.
