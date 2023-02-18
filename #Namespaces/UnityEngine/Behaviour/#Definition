@@ -1,0 +1,63 @@
+In Unity, Behaviour is a base class for all components that can be enabled or disabled. 
+It provides functionality for managing the enabled state of the component and its children.
+
+Here's a summary of the properties, methods, and structures of Behaviour:
+
+Properties:
+
+- enabled             : A boolean value indicating whether the component is enabled or disabled.
+- isActiveAndEnabled  : A boolean value indicating whether the component is both active and enabled.
+- gameObject          : The game object this component is attached to.
+
+
+ Methods:
+
+ToString(): Returns a string representation of the component.
+
+
+Behaviour is an abstract class, meaning it can't be directly instantiated.
+However, all components that can be enabled or disabled, such as Renderer, Collider, and Script, inherit from Behaviour.
+
+The most common use of Behaviour is to enable or disable a component, and thus the functionality it provides, during runtime.
+By setting enabled to true, the component is activated and will run its associated code.
+When enabled is set to false, the component is deactivated and its code won't run.
+
+An example of using Behaviour to enable and disable a Renderer component:
+----------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class ExampleBehaviour : MonoBehaviour
+{
+    public Renderer myRenderer;
+
+    private void Start()
+    {
+        // Disable the renderer
+        myRenderer.enabled = false;
+    }
+
+    private void Update()
+    {
+        // Enable the renderer when the space key is pressed
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myRenderer.enabled = true;
+        }
+
+        // Disable the renderer when the escape key is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            myRenderer.enabled = false;
+        }
+    }
+}
+
+----------------------------------------------------------------------------------------------------
+
+In this example, the Renderer component attached to the game object is disabled at the start of the script.
+When the space key is pressed, the renderer is enabled and will start rendering its associated graphics.
+When the escape key is pressed, the renderer is disabled again and will stop rendering its graphics.
+
+
+
