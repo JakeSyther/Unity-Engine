@@ -1,0 +1,137 @@
+The Animator component in Unity is responsible for controlling the animation of a game object. 
+It allows you to create complex animations by defining a set of animation clips and transitions between them.
+
+The Animator class provides access to the Animator component and allows you to interact with it programmatically. 
+
+
+
+Here are some of the key features and properties of the Animator class:
+
+- Controller: The Animator Controller is an asset that manages the transitions and blends between animation clips.
+  You can set the controller to use for the Animator component using the "runtimeAnimatorController" property.
+
+- Parameters: You can define parameters that can be used to control the state of the Animator.
+  These parameters can be of different types, such as bool, int, float or trigger.
+  You can get and set the value of these parameters using the
+  "GetBool", "SetBool", "GetFloat", "SetFloat", "GetInteger", "SetInteger", "SetTrigger" and "ResetTrigger" methods.
+
+- States: The Animator is in a specific state at any given time.
+  You can get the current state using the "GetCurrentAnimatorStateInfo" method.
+  This method returns an AnimatorStateInfo object, which provides information about the current state, such as its name, the normalized time, and whether it is looping.
+
+- Layers: You can define multiple layers in the Animator, which can be used to blend animations together.
+  Each layer has its own weight, which determines how much it contributes to the final animation.
+  You can get and set the weight of each layer using the "GetLayerWeight" and "SetLayerWeight" methods.
+
+- Play: You can start playing an animation using the "Play" method.
+  This method allows you to specify the name of the animation clip to play, the layer to play it on,
+  the normalized time to start playing from, and the duration of the crossfade.
+
+- Crossfade: You can crossfade between two animation clips using the "CrossFade" method.
+  This method allows you to specify the name of the target animation clip, the duration of the crossfade,
+  the layer to play it on, and the normalized time to start playing from.
+
+- Speed: You can change the playback speed of an animation using the "speed" property. 
+  This property allows you to increase or decrease the speed of the animation.
+  You can also set it to a negative value to play the animation in reverse.
+
+- Events: You can define events in the animation clips that can be triggered at specific times.
+  You can add event listeners to the Animator component to listen for these events and respond to them.
+
+- Blending: You can blend between different animation clips using the "CrossFade" method, which allows you to specify the duration of the crossfade.
+  You can also use the "Blend" method to smoothly blend between two animation clips based on a weight value.
+
+
+
+List of all the methods available in the Animator class in Unity
+
+ApplyBuiltinRootMotion()
+CrossFade(String, Single, Int32, Single)
+CrossFade(String, Single, Int32)
+CrossFade(String, Single)
+CrossFadeInFixedTime(String, Single, Int32, Single)
+CrossFadeInFixedTime(String, Single, Int32)
+CrossFadeInFixedTime(String, Single)
+CrossFadeInFixedTime(Int32, Single, Int32, Single)
+CrossFadeInFixedTime(Int32, Single, Int32)
+CrossFadeInFixedTime(Int32, Single)
+GetBool(String)
+GetFloat(String)
+GetInteger(String)
+GetLayerName(Int32)
+GetLayerWeight(Int32)
+GetNextAnimatorClipInfo(Int32, List<AnimatorClipInfo>)
+GetNextAnimatorStateInfo(Int32)
+GetNextAnimatorStateInfo(Int32, AnimatorStateInfo)
+GetParameter(Int32)
+GetParameter(String)
+GetParameterCount()
+GetParameterInfo(Int32)
+GetParameterValue(Int32)
+GetTarget(Int32)
+HasState(Int32, Int32)
+Play(String, Int32, Single)
+Play(String, Int32)
+Play(String)
+Play(Int32, Int32, Single)
+Play(Int32, Int32)
+Play(Int32)
+Play(String, Int32, Single, Single)
+Play(String, Int32, Single, Single, Single)
+Play(String, Int32, Single, Single, Single, Single)
+PlayInFixedTime(String, Int32, Single)
+PlayInFixedTime(String, Int32)
+PlayInFixedTime(String)
+PlayInFixedTime(Int32, Int32, Single)
+PlayInFixedTime(Int32, Int32)
+PlayInFixedTime(Int32)
+PlayInFixedTime(String, Int32, Single, Single)
+PlayInFixedTime(String, Int32, Single, Single, Single)
+PlayInFixedTime(String, Int32, Single, Single, Single, Single)
+Rebind()
+ResetTrigger(String)
+SetBool(String, Boolean)
+SetFloat(String, Single)
+SetIKHintPosition(AvatarIKHint, Vector3)
+SetIKHintPositionWeight(AvatarIKHint, Single)
+SetIKPosition(AvatarIKGoal, Vector3)
+SetIKPositionWeight(AvatarIKGoal, Single)
+SetIKRotation(AvatarIKGoal, Quaternion)
+SetIKRotationWeight(AvatarIKGoal, Single)
+SetInteger(String, Int32)
+SetLayerWeight(Int32, Single)
+SetLookAtPosition(Vector3)
+SetLookAtPosition(Vector3, Single, Single, Single, Boolean)
+SetLookAtWeight(Single, Single, Single, Single, Single)
+SetTarget(AvatarTarget, Single)
+SetTrigger(String)
+Update(Float)
+
+
+
+An example of how to use the Animator class to play an animation clip:
+--------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class AnimatorExample : MonoBehaviour
+{
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.Play("Jump");
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------
+In this example, the Animator component is obtained using the GetComponent method in the Start method. 
+When the space key is pressed, the "Jump" animation clip is played using the Play method.
