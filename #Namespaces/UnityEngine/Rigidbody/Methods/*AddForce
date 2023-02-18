@@ -1,1 +1,40 @@
+AddForce() is a method in the Rigidbody class in Unity, which allows you to apply a force to a rigidbody. 
+
+Here's an example:
+
+---------------------------------------------------------------------------------------------------
+
+public class AddForceExample : MonoBehaviour
+{
+    public Rigidbody rb;
+    public float force = 10f;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(transform.forward * force, ForceMode.Impulse);
+        }
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+In this example, we have a Rigidbody component attached to a game object, and we want to apply a force to it when the space key is pressed.
+We start by getting a reference to the Rigidbody component in the Start() method.
+
+In the Update() method, we check if the space key is pressed. If it is, we call the AddForce() method on the Rigidbody component. 
+We pass in two parameters: the direction we want the force to be applied in (which is transform.forward in this case,
+meaning the direction the game object is facing), and the amount of force to apply (which is force in this case).
+
+We also pass in a third parameter, ForceMode.Impulse, which specifies the type of force to apply. 
+In this case, we're using an impulse force, which applies an instantaneous force to the object.
+
+So when the space key is pressed, the game object will be pushed forward with a force of force in the direction it is facing.
+
 
