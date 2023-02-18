@@ -1,0 +1,47 @@
+The StringToHash method in Unity's Animator class converts a string representing a parameter name or a state name to an integer hash code.
+This can be useful for improving the performance of parameter lookups, since integer comparisons are generally faster than string comparisons.
+
+The method takes a string parameter representing the name of the parameter or state to be hashed, and returns an integer hash code.
+
+Here is an example:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class AnimatorController : MonoBehaviour
+{
+    Animator animator;
+
+    // Hash codes for the "isWalking" and "attack" parameters
+    int isWalkingHash;
+    int attackHash;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        isWalkingHash = Animator.StringToHash("isWalking");
+        attackHash = Animator.StringToHash("attack");
+    }
+
+    void Update()
+    {
+        // Set the "isWalking" parameter to true
+        animator.SetBool(isWalkingHash, true);
+
+        // Check if the "attack" trigger is set
+        if (animator.GetBool(attackHash))
+        {
+            // Attack logic here...
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we first define two integer variables (isWalkingHash and attackHash) to store the hash codes for the "isWalking" and "attack" parameters, respectively.
+We then use the StringToHash method to convert the strings "isWalking" and "attack" to their corresponding hash codes.
+
+In the Update method, we set the "isWalking" parameter to true using the SetBool method and the isWalkingHash parameter hash.
+We also check if the "attack" trigger is set using the GetBool method and the attackHash parameter hash.
+
+By using hash codes instead of strings, we can improve the performance of parameter lookups in our animator controller.
