@@ -7,10 +7,11 @@ Unity has four different ForceModes that can be used with the AddForce() method.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+
 1. ForceMode.Force: Adds a force to the rigidbody, using its mass for calculation.
    This is the most common mode and is good for continuous forces, like gravity, wind, or pushing a box.
-   
-   
    
 Example:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -31,10 +32,15 @@ void FixedUpdate()
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
 2. ForceMode.Acceleration: Adds a force to the rigidbody, ignoring its mass.
    This is useful for acceleration, like when boosting a car or using thrusters to move a spaceship.
-   
-   
    
 Example:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -56,9 +62,15 @@ void FixedUpdate()
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
+
 3. ForceMode.Impulse: Adds an instant force to the rigidbody, using its mass for calculation.
    This is good for things like hitting a ball or making an object jump.
-
 
 Example:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -83,10 +95,14 @@ void Update()
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+
+
+
+
+
+
 4. ForceMode.VelocityChange: Adds an instant force to the rigidbody, ignoring its mass.
 This is useful for setting the velocity directly, like when shooting a projectile or teleporting an object.
-
-
 
 Example:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
