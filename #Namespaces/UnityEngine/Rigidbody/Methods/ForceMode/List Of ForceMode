@@ -1,0 +1,111 @@
+Unity has four different ForceModes that can be used with the AddForce() method. These are:
+
+- ForceMode.Force            : This is the default mode and applies a continuous force to the rigidbody, using its mass to calculate the resulting acceleration.
+- ForceMode.Impulse          : This applies an instant force to the rigidbody, using its mass to calculate the resulting change in velocity.
+- ForceMode.Acceleration     : This applies a continuous acceleration to the rigidbody, ignoring its mass.
+- ForceMode.VelocityChange   : This applies an instant change in velocity to the rigidbody, ignoring its mass.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. ForceMode.Force: Adds a force to the rigidbody, using its mass for calculation.
+   This is the most common mode and is good for continuous forces, like gravity, wind, or pushing a box.
+   
+   
+   
+Example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Rigidbody rb;
+public float forceAmount = 100f;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody>();
+}
+
+void FixedUpdate()
+{
+    Vector3 forceDirection = transform.forward; // Or any other direction
+    rb.AddForce(forceDirection * forceAmount, ForceMode.Force);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. ForceMode.Acceleration: Adds a force to the rigidbody, ignoring its mass.
+   This is useful for acceleration, like when boosting a car or using thrusters to move a spaceship.
+   
+   
+   
+Example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Rigidbody rb;
+public float forceAmount = 100f;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody>();
+}
+
+void FixedUpdate()
+{
+    Vector3 forceDirection = transform.forward; // Or any other direction
+    rb.AddForce(forceDirection * forceAmount, ForceMode.Acceleration);
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3. ForceMode.Impulse: Adds an instant force to the rigidbody, using its mass for calculation.
+   This is good for things like hitting a ball or making an object jump.
+
+
+Example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Rigidbody rb;
+public float forceAmount = 100f;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody>();
+}
+
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        Vector3 forceDirection = transform.up; // Or any other direction
+        rb.AddForce(forceDirection * forceAmount, ForceMode.Impulse);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+4. ForceMode.VelocityChange: Adds an instant force to the rigidbody, ignoring its mass.
+This is useful for setting the velocity directly, like when shooting a projectile or teleporting an object.
+
+
+
+Example:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Rigidbody rb;
+public float forceAmount = 100f;
+
+void Start()
+{
+    rb = GetComponent<Rigidbody>();
+}
+
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        Vector3 forceDirection = transform.up; // Or any other direction
+        rb.AddForce(forceDirection * forceAmount, ForceMode.VelocityChange);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
