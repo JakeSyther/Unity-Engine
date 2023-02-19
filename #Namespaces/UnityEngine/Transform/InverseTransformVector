@@ -1,0 +1,72 @@
+The InverseTransformVector method in Unity is used to convert a vector from world space to local space relative to a transform. 
+It takes a vector in world space and returns the corresponding vector in local space.
+
+
+Here is the syntax for using InverseTransformVector:
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+public Vector3 InverseTransformVector(Vector3 vector);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+The method takes a Vector3 as its input parameter, which represents the vector to be transformed. It then returns the transformed vector as a Vector3 value.
+
+
+
+
+
+
+An example of how to use InverseTransformVector in Unity:
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    public Transform target;
+    public Vector3 worldVector;
+
+    void Update()
+    {
+        // Get the inverse transform vector of the world vector
+        Vector3 localVector = target.InverseTransformVector(worldVector);
+
+        // Do something with the local vector
+        Debug.Log("Local Vector: " + localVector);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we have a target transform and a world vector that we want to transform into the target's local space.
+We use the InverseTransformVector method of the target transform to convert the world vector into a local vector. 
+We then use this local vector to do something in the game, such as moving an object relative to the target.
+
+
+Another an example:
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+// Get a reference to the transform component
+Transform myTransform = GetComponent<Transform>();
+
+// Create a vector in world space
+Vector3 worldVector = new Vector3(1.0f, 0.0f, 0.0f);
+
+// Transform the vector to local space
+Vector3 localVector = myTransform.InverseTransformVector(worldVector);
+
+// Output the results
+Debug.Log("World vector: " + worldVector);
+Debug.Log("Local vector: " + localVector);
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we first get a reference to the Transform component attached to the game object using the GetComponent method. 
+We then create a new vector called worldVector, which has a value of (1.0f, 0.0f, 0.0f) in world space.
+
+We then use the InverseTransformVector method to transform the worldVector into the game object's local space. 
+This creates a new vector called localVector, which represents the worldVector in the local space of the game object.
+
+Finally, we output the original worldVector and the transformed localVector to the console using Debug.Log.
+
+Note that if the transform is scaled non-uniformly, the result of InverseTransformVector may be unexpected,
+as the transformation will not preserve the relative lengths of the vector's components.
