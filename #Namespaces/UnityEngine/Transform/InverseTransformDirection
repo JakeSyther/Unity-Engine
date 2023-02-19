@@ -1,0 +1,30 @@
+The InverseTransformDirection method is a member of the Transform class in Unity.
+It is used to transform a direction from world space to local space relative to the transform.
+It takes a Vector3 argument, which is the direction in world space, and returns a Vector3 representing that direction in the local space of the transform.
+
+An example that shows how to use the InverseTransformDirection method:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Get the transform of an object in the scene
+Transform myTransform = GameObject.Find("MyObject").transform;
+
+// Create a direction in world space
+Vector3 worldDirection = new Vector3(1.0f, 0.0f, 0.0f);
+
+// Convert the direction to local space
+Vector3 localDirection = myTransform.InverseTransformDirection(worldDirection);
+
+// Output the results
+Debug.Log("World Direction: " + worldDirection);
+Debug.Log("Local Direction: " + localDirection);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we first get a reference to a transform in the scene using GameObject.Find.
+We then create a direction vector in world space that points to the right (1, 0, 0).
+We use the InverseTransformDirection method to convert this direction vector to the local space of the myTransform object.
+Finally, we output both the world and local directions to the console for comparison.
+
+Note that the InverseTransformDirection method only works with directions, not positions.
+If you need to transform a position from world space to local space, you should use the InverseTransformPoint method instead.
