@@ -1,0 +1,42 @@
+The "SetTrigger" method is used to set a trigger parameter in an Animator component in Unity. 
+Trigger parameters are used to transition from one animation state to another.
+When a trigger parameter is set using SetTrigger, the transition to the next state is made immediately in the next frame.
+
+
+* Here's the syntax for using the SetTrigger method:
+public void SetTrigger(string name);
+
+The name parameter is a string that represents the name of the trigger parameter to set.
+
+* An example of how to use SetTrigger in a script attached to a game object:
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class MyScript : MonoBehaviour
+{
+    Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetTrigger("JumpTrigger");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the Update method checks for a keyboard input of the space key.
+When the space key is pressed, the JumpTrigger parameter is set using SetTrigger.
+This will cause the Animator to transition to the next state associated with the trigger parameter in the next frame.
+
+It's important to note that trigger parameters can only have two values: on and off. 
+When a trigger is set using SetTrigger, it immediately becomes true, and then it returns to false at the end of the frame. 
+This means that you cannot read the current value of a trigger parameter in a script. 
+Instead, you can use the GetCurrentAnimatorStateInfo method to get information about the current state of the Animator.
