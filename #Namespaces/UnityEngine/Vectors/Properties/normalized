@@ -1,0 +1,30 @@
+The normalized property of a Vector2 or Vector3 returns a vector with the same direction as the original, 
+but with a magnitude of 1.0. In other words, it scales the vector down so that it has a length of 1, while preserving its direction.
+
+An example using Vector2:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vector2 myVector = new Vector2(3.0f, 4.0f);      // create a vector with magnitude of 5.0
+Vector2 normalizedVector = myVector.normalized;  // get a normalized version of the vector
+Debug.Log(normalizedVector);                     // prints "(0.6, 0.8)"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we first create a Vector2 with the components (3.0, 4.0), which has a magnitude of 5.0 (because of the Pythagorean theorem: sqrt(3^2 + 4^2) = 5).
+We then call the normalized property on this vector to get a new Vector2 with the same direction but a magnitude of 1.0. 
+The resulting normalized vector is (0.6, 0.8), which we print to the console.
+
+
+An example using Vector3:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vector3 myVector = new Vector3(1.0f, 2.0f, 3.0f); // create a vector with magnitude of sqrt(14)
+Vector3 normalizedVector = myVector.normalized;   // get a normalized version of the vector
+Debug.Log(normalizedVector);                      // prints "(0.26726, 0.53452, 0.80178)"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we create a Vector3 with the components (1.0, 2.0, 3.0), which has a magnitude of sqrt(1^2 + 2^2 + 3^2) = sqrt(14). 
+We then call the normalized property on this vector to get a new Vector3 with the same direction but a magnitude of 1.0. 
+The resulting normalized vector is approximately (0.26726, 0.53452, 0.80178), which we print to the console.
+
