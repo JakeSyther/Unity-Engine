@@ -44,3 +44,23 @@ Finally, we calculate the dot product of two vectors using the Dot method, which
 
 
 
+Here are the properties, methods, and structures available for Vector2 and Vector3 in Unity:
+
+Vector2:
+
+- Properties: x, y, magnitude, sqrMagnitude, normalized
+- Methods: Set, Lerp, LerpUnclamped, MoveTowards, Scale, Reflect, Dot, Angle, SignedAngle, Distance, ClampMagnitude, ToString, GetHashCode, Equals
+- Structures: None
+
+
+
+Vector3:
+
+- Properties: x, y, z, magnitude, sqrMagnitude, normalized
+- Methods: Set, Lerp, LerpUnclamped, MoveTowards, Scale, Reflect, Dot, Angle, SignedAngle, Distance, ClampMagnitude, Cross, Project, ProjectOnPlane, 
+  OrthoNormalize, Slerp, SlerpUnclamped, RotateTowards, SmoothDamp, ToString, GetHashCode, Equals
+- Structures: None
+
+Note that these are just the built-in properties, methods, and structures for Vector2 and Vector3 in Unity.
+Additional functionality can be added through custom code and external packages.
+
