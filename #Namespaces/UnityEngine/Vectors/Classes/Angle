@@ -1,0 +1,57 @@
+The Vector2.Angle and Vector3.Angle methods in Unity return the angle in degrees between two vectors,
+where one vector is the calling vector and the other is passed as an argument.
+
+
+The general syntax for the Vector2.Angle method is:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public static float Angle(Vector2 from, Vector2 to);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+And for the Vector3.Angle method is:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public static float Angle(Vector3 from, Vector3 to);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The from vector represents the calling vector, and the to vector is the vector to which the angle is being calculated.
+
+
+
+Here's an example for "Vector2.Angle":
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vector2 vector1 = new Vector2(1, 0);
+Vector2 vector2 = new Vector2(0, 1);
+
+float angle = Vector2.Angle(vector1, vector2);
+
+Debug.Log(angle); // Output: 90
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we create two vectors, vector1 and vector2, which are perpendicular to each other. 
+We then use the Vector2.Angle method to calculate the angle between these two vectors, which should be 90 degrees.
+The result is stored in the angle variable, which we then output to the console using Debug.Log.
+
+
+
+And here's an example for "Vector3.Angle":
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vector3 vector1 = new Vector3(1, 0, 0);
+Vector3 vector2 = new Vector3(0, 1, 0);
+
+float angle = Vector3.Angle(vector1, vector2);
+
+Debug.Log(angle); // Output: 90
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In this example, we create two vectors, vector1 and vector2, which are perpendicular to each other in the x-y plane.
+We then use the Vector3.Angle method to calculate the angle between these two vectors, which should be 90 degrees. 
+The result is stored in the angle variable, which we then output to the console using Debug.Log.
+
