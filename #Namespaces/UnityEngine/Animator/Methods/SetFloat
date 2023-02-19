@@ -1,0 +1,46 @@
+The Animator.SetFloat method is used to set the value of a float parameter in an Animator component. 
+The method takes two arguments: the name of the parameter to set, and the value to set it to.
+The float value can be used to control the playback speed of an animation or other parameters that need a float value.
+
+- Here is the syntax for the SetFloat method:
+public void SetFloat(string name, float value);
+
+
+Where:
+*name: The name of the float parameter to set.
+*value: The value to set the float parameter to.
+
+
+An example usage of SetFloat to set the speed of a running animation:
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class PlayerController : MonoBehaviour
+{
+    private Animator animator;
+    private Rigidbody rb;
+    public float speed = 5.0f;
+    
+    void Start()
+    {
+        animator  = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
+    }
+    
+    void FixedUpdate()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical   = Input.GetAxis("Vertical");
+        Vector3 moveDirection = new Vector3(horizontal, 0.0f, vertical);
+        moveDirection.Normalize();
+        rb.AddForce(moveDirection * speed);
+        animator.SetFloat("Speed", moveDirection.magnitude);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the SetFloat method is used to control the Speed parameter of the Animator component.
+The magnitude of the moveDirection vector is used to set the Speed parameter, which controls the playback speed of the running animation. 
+As the player moves faster, the Speed parameter increases, and the animation plays back at a faster speed.
+
+
