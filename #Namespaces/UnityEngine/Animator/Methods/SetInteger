@@ -1,0 +1,37 @@
+Animator.SetInteger is a method used to set integer parameters in an animator controller. 
+These parameters are defined in the animator controller and are used to control different animations or behaviors of the character.
+
+The SetInteger method has two parameters: the name of the integer parameter to set and the value to set it to.
+
+
+* Here's the method signature:
+public void SetInteger(string name, int value);
+
+* An example of how to use SetInteger to set the "health" parameter to 0:
+---------------------------------------------------------------------------------------
+animator.SetInteger("health", 0);
+---------------------------------------------------------------------------------------
+
+In this example, animator is the Animator component attached to the game object, 
+"health" is the name of the integer parameter in the animator controller, and 0 is the value to set it to.
+
+
+Setting integer parameters using SetInteger can be used to control different animations based on certain conditions. 
+For example, you could have an animation that plays when the character's health is low:
+---------------------------------------------------------------------------------------
+
+if (health < 20)
+{
+    animator.SetInteger("health", 1);
+} else
+{
+    animator.SetInteger("health", 0);
+}
+
+---------------------------------------------------------------------------------------
+
+In this example, if the character's health is less than 20, the "health" parameter is set to 1, which triggers an animation in the animator controller.
+If the character's health is 20 or greater, the "health" parameter is set to 0, which stops the animation.
+
+
+
