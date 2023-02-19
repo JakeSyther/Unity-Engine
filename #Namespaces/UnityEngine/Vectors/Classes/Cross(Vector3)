@@ -1,0 +1,71 @@
+The Vector3.Cross() method in Unity calculates the cross product of two vectors.
+The cross product of two vectors is a third vector that is perpendicular to both of the original vectors.
+
+The syntax for using Cross() is as follows:
+public static Vector3 Cross(Vector3 lhs, Vector3 rhs);
+
+lhs and rhs are the two vectors whose cross product we want to calculate.
+
+The return value is a new Vector3 that is perpendicular to both lhs and rhs. ( lhs = left hand side, rhs = right hand side)
+Specifically, the direction of the returned vector is such that if you were to point your right-hand thumb along lhs and your index finger along rhs,
+the direction of the returned vector is the direction that your middle finger would point.
+
+An example usage of Cross():
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Vector3 v1 = new Vector3(1, 2, 3);
+Vector3 v2 = new Vector3(4, 5, 6);
+Vector3 crossProduct = Vector3.Cross(v1, v2);
+
+Debug.Log(crossProduct); // Outputs: (-3, 6, -3)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, v1 and v2 are two Vector3 instances.
+The cross product of v1 and v2 is calculated using the Cross() method and assigned to the crossProduct variable.
+The resulting crossProduct vector is then logged to the console.
+
+
+
+The cross product is a mathematical operation performed on two vectors that results in a new vector which is perpendicular to both of the original vectors.
+
+It is defined as:
+A x B = |A| |B| sin(theta) n
+
+where A and B are the two vectors being multiplied, |A| and |B| are their magnitudes,
+theta is the angle between them, and n is a unit vector perpendicular to the plane formed by A and B.
+
+The cross product of two vectors is a vector that is perpendicular to both of them, and its direction is determined by the right-hand rule.
+That is, if you curl the fingers of your right hand from vector A to vector B, then the direction that your thumb points is the direction of the cross product.
+
+The magnitude of the cross product is equal to the product of the magnitudes of the two vectors multiplied by the sine of the angle between them:
+
+|A x B| = |A| |B| sin(theta)
+
+The cross product is used in a variety of applications, such as calculating torque and angular momentum in physics,
+and in computer graphics for computing surface normals and generating random vectors.
+
+
+An example to help explain cross product calculation:
+Imagine you have two vectors, A and B, in a 3D space. Vector A has a length of 2 units and is pointing in the direction of (1, 0, 0). 
+Vector B has a length of 3 units and is pointing in the direction of (0, 1, 0).
+To calculate the cross product of A and B, you can follow these steps:
+
+1. Write out the components of the two vectors: A = (2, 0, 0) and B = (0, 3, 0).
+2. Take the determinant of the 3x3 matrix formed by the i, j, and k unit vectors and the components of A and B. The resulting matrix will look like:
+
+i  j  k
+2  0  0
+0  3  0
+
+3. Expand the determinant using the first row: i * det(3, 0, 0, 0, 0, 3) - j * det(2, 0, 0, 0, 0, 0) + k * det(2, 3, 0, 0, 0, 0).
+4. Evaluate the three determinants: det(3, 0, 0, 0, 0, 3) = 9, det(2, 0, 0, 0, 0, 0) = 0, and det(2, 3, 0, 0, 0, 0) = 0.
+5. Substitute the determinants back into the expanded determinant to get the final result: (9i + 0j + 0k) = (9, 0, 0).
+
+So the cross product of A and B is a new vector pointing in the x direction with a length of 9 units. 
+Visually, this means that the cross product is perpendicular to both A and B, 
+and points in the direction that you would get if you used your right hand to curl your fingers from A towards B.
+
+
+
