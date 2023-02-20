@@ -1,0 +1,44 @@
+The UnityEngine.CoreModule is a part of the Unity engine's core runtime and contains the fundamental classes and structures for building games in Unity.
+It is automatically included in all Unity projects and provides a wide range of functionality, including:
+
+* Basic data types such as integers, floats, booleans, and strings
+* Common data structures like arrays, lists, and dictionaries
+* Common math functions like trigonometric and logarithmic functions
+* Core engine functionality like time management, input handling, and debugging utilities
+* Low-level system functionality like file I/O, networking, and platform-specific APIs
+
+- A list of all the namespaces contained in the UnityEngine.CoreModule:
+
+* UnityEngine                 : The primary namespace for the Unity engine.
+* UnityEngine.Assertions      : Contains classes and methods for asserting the correctness of code during runtime.
+* UnityEngine.Collections     : Contains collections like lists and dictionaries that are optimized for use in Unity.
+* UnityEngine.Events          : Contains classes for defining and handling events in Unity.
+* UnityEngine.Internal        : Contains internal Unity classes and methods that are not intended for public use.
+* UnityEngine.Profiling       : Contains classes for profiling and optimizing code in Unity.
+* UnityEngine.SceneManagement : Contains classes for managing scenes and the loading and unloading of game objects.
+* UnityEngine.Scripting       : Contains classes and methods for scripting in Unity, including support for C# scripting.
+* UnityEngine.Serialization   : Contains classes and methods for serialization and deserialization in Unity.
+* UnityEngine.U2D             : Contains classes and structures for working with 2D graphics in Unity.
+* UnityEngine.UI              : Contains classes and structures for building user interfaces in Unity.
+* UnityEngine.XR              : Contains classes and structures for working with virtual and augmented reality in Unity.
+
+
+In addition to the namespaces, the UnityEngine.CoreModule contains many classes, structures, and methods that are fundamental to building games in Unity. 
+
+Here are some examples:
+
+* Mathf: A static class that contains many commonly used mathematical functions like sin, cos, and sqrt.
+* Time: A static class that contains information about the current time in the game, 
+  including the time since the game started and the time since the last frame was rendered.
+* Debug: A static class that contains methods for logging messages and warnings to the Unity console.
+* GameObject: A class that represents a game object in Unity and provides methods for working with game objects like adding and removing components, 
+  setting the transform, and finding game objects by name.
+* Transform: A class that represents the transform of a game object in Unity and provides methods for working with the position, rotation,
+  and scale of the game object.
+* Vector3: A structure that represents a 3D vector in Unity and provides methods for working with vectors, including adding and subtracting vectors,
+  finding the dot and cross products, and normalizing vectors.
+* WaitForSeconds: A class that represents a yield instruction in a coroutine, causing the coroutine to pause for a specified amount of time before continuing.
+
+
+This is just a brief overview of the UnityEngine.CoreModule.
+There are many more classes, structures, and methods in the module that are fundamental to building games in Unity.
