@@ -1,0 +1,82 @@
+In Unity, an interface is a contract between a class and the outside world.
+It defines a set of methods, properties, and events that a class implementing the interface must provide. 
+Interfaces provide a way to define common functionality that can be shared across multiple classes,
+even if those classes are not directly related through inheritance.
+
+Interfaces in Unity are used in a variety of ways, including:
+
+* Component communication: Interfaces can be used to define a common set of methods or properties that can be used by different components to communicate
+  with each other.
+
+* Event handling: Interfaces can be used to define event handling methods that can be implemented by different classes to handle events raised by other classes.
+
+* Dependency injection: Interfaces can be used to provide a way to inject dependencies into classes at runtime, allowing for more flexible and modular code.
+
+* Polymorphism: Interfaces provide a way to achieve polymorphism in Unity, 
+  allowing different objects to be treated as the same type based on the interfaces they implement.
+
+Unity provides a number of built-in interfaces that can be used in various ways, including:
+
+IComparable: Allows objects to be compared to each other based on their values.
+
+IDisposable: Provides a way to release unmanaged resources when an object is no longer needed.
+
+IEnumerable: Allows objects to be iterated over using a foreach loop.
+
+IEventSystemHandler: Provides a way to handle events raised by the Unity UI system.
+
+ISerializationCallbackReceiver: Provides a way to perform custom serialization and deserialization of objects.
+
+IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, etc.: Provides a way to handle pointer input events in the Unity UI system.
+
+These are just a few examples of the many ways that interfaces are used in Unity to provide a flexible and extensible programming environment.
+
+List of Unity interfaces.
+
+IComparable
+IDisposable
+IEnumerable
+IEnumerator
+IEquatable
+IFormatProvider
+IFormattable
+IAsyncResult
+ICloneable
+IComparer
+IConvertible
+ICustomFormatter
+IEqualityComparer
+IList
+IPointerDownHandler
+IPointerUpHandler
+IPointerEnterHandler
+IPointerExitHandler
+IPointerClickHandler
+ISelectHandler
+IDeselectHandler
+IUpdateSelectedHandler
+IEventSystemHandler
+ICanvasElement
+ILayoutElement
+IMeshModifier
+ICanvasRaycastFilter
+IPointerHoverHandler
+IPointerDragHandler
+IEndDragHandler
+IDropHandler
+IScrollHandler
+IMoveHandler
+IRaycastHandler
+ICanvasMeshProvider
+ICanvasRaycastTarget
+ICanvasSortingLayer
+ICanvasAdditionalShaderChannels
+ICanvas
+ICanvasRaycaster
+IInitializable
+IHasXmlNode
+IXmlLineInfo
+IXmlNamespaceResolver
+IObjectReferenceDataProvider
+IStyleValueProvider
+IStyleValueConvertable
