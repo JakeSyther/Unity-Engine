@@ -1,0 +1,90 @@
+HumanBodyBones is an enumeration in Unity that represents the bones in the human body. 
+It is commonly used with the Animator component to get the Transform of a specific bone.
+
+A list of the bones in the HumanBodyBones enumeration:
+
+Hips
+LeftUpperLeg
+RightUpperLeg
+LeftLowerLeg
+RightLowerLeg
+LeftFoot
+RightFoot
+Spine
+Chest
+Neck
+Head
+LeftShoulder
+RightShoulder
+LeftUpperArm
+RightUpperArm
+LeftLowerArm
+RightLowerArm
+LeftHand
+RightHand
+LeftToes
+RightToes
+LeftEye
+RightEye
+Jaw
+LeftThumbProximal
+LeftThumbIntermediate
+LeftThumbDistal
+LeftIndexProximal
+LeftIndexIntermediate
+LeftIndexDistal
+LeftMiddleProximal
+LeftMiddleIntermediate
+LeftMiddleDistal
+LeftRingProximal
+LeftRingIntermediate
+LeftRingDistal
+LeftLittleProximal
+LeftLittleIntermediate
+LeftLittleDistal
+RightThumbProximal
+RightThumbIntermediate
+RightThumbDistal
+RightIndexProximal
+RightIndexIntermediate
+RightIndexDistal
+RightMiddleProximal
+RightMiddleIntermediate
+RightMiddleDistal
+RightRingProximal
+RightRingIntermediate
+RightRingDistal
+RightLittleProximal
+RightLittleIntermediate
+RightLittleDistal
+
+You can use the Animator.GetBoneTransform method to get the Transform of a specific bone. 
+
+For example:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class Example : MonoBehaviour
+{
+    public Animator animator;
+    public HumanBodyBones bone;
+    
+    void Start()
+    {
+        Transform boneTransform = animator.GetBoneTransform(bone);
+        if (boneTransform != null)
+        {
+            Debug.Log("Bone transform found: " + boneTransform.name);
+        }
+        else
+        {
+            Debug.Log("Bone transform not found.");
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we are getting the Transform of a bone specified by the bone variable.
+We are checking if the bone transform is not null and logging the name of the bone transform to the console.
+
+
+
+
