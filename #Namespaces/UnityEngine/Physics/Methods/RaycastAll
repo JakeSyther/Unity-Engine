@@ -1,0 +1,49 @@
+Physics.RaycastAll is a method in Unity that casts a ray against colliders in the scene and returns all hits in an array.
+
+The method takes three parameters:
+
+* origin: The starting point of the ray.
+* direction: The direction of the ray.
+* maxDistance: The maximum distance of the ray.
+
+It returns an array of RaycastHit objects, which contain information about the colliders that were hit by the ray. 
+Each RaycastHit object contains information such as the distance from the ray's origin to the hit, the point where the ray hit the collider,
+and the normal of the surface at the point of intersection.
+
+Physics.RaycastAll is useful when you need to get information about all the colliders that intersect with a ray, instead of just the first one that is hit. 
+This can be used for things like detecting all objects in a line of sight, or checking for all objects in the vicinity of the player.
+
+
+An example of using Physics.RaycastAll:
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+
+public class RaycastAllExample : MonoBehaviour
+{
+    public float maxDistance = 10f;
+
+    void Update()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit[] hits = Physics.RaycastAll(ray, maxDistance);
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit hit = hits[i];
+                Debug.Log("Hit " + hit.collider.gameObject.name);
+            }
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, a ray is cast from the mouse position in the direction of the camera. 
+The method Physics.RaycastAll is called with the ray and a maximum distance of 10 units. 
+The array of RaycastHit objects is then looped through, and each hit is logged to the console.
+
+
+
