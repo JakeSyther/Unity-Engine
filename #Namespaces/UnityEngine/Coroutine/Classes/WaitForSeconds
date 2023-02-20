@@ -1,0 +1,26 @@
+WaitForSeconds is a built-in class in Unity that inherits from the YieldInstruction class.
+It allows you to pause the execution of a coroutine for a specified amount of time.
+
+Overview of the properties and methods of WaitForSeconds:
+
+Properties:
+
+* seconds: the amount of time to wait before resuming the coroutine.
+
+Methods:
+
+* WaitForSeconds(float seconds): constructor for creating a new WaitForSeconds object with the specified wait time.
+
+An example of how to use WaitForSeconds in a coroutine:
+
+IEnumerator MyCoroutine()
+{
+    Debug.Log("Coroutine started");
+    yield return new WaitForSeconds(2.0f);
+    Debug.Log("Coroutine resumed after 2 seconds");
+}
+
+In this example, the coroutine will log "Coroutine started", then pause for 2 seconds using WaitForSeconds, and then log "Coroutine resumed after 2 seconds".
+
+Note that WaitForSeconds only works within a coroutine function (a function that returns an IEnumerator type). 
+When yield return is called with WaitForSeconds, the coroutine will be suspended for the specified time before resuming from where it left off.
