@@ -1,0 +1,62 @@
+"NavMesh.SamplePosition" is a static method in the UnityEngine.AI.NavMesh class that allows you to find the nearest point on a NavMesh to a given position in the world.
+
+Here is the syntax for NavMesh.SamplePosition:
+
+public static bool SamplePosition(Vector3 sourcePosition, out NavMeshHit hit, float maxDistance, int areaMask);
+
+
+
+Let's go over each parameter:
+
+* sourcePosition: The point in the world that you want to find the nearest NavMesh position to.
+* hit: A NavMeshHit struct that contains information about the nearest point on the NavMesh. This parameter is passed by reference and filled in by the method.
+* maxDistance: The maximum distance from sourcePosition to search for a point on the NavMesh.
+* areaMask: A bitmask that specifies which NavMesh areas to include in the search. This allows you to limit the search to certain areas of the NavMesh.
+
+
+The method returns a bool that indicates whether or not a point was found on the NavMesh.
+
+An example of how to use NavMesh.SamplePosition to find the nearest NavMesh position to a given point:
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+using UnityEngine.AI;
+
+public class NavMeshSamplePositionExample : MonoBehaviour
+{
+    // The point in the world that we want to find the nearest NavMesh position to.
+    public Vector3 sourcePosition;
+
+    // The maximum distance from sourcePosition to search for a point on the NavMesh.
+    public float maxDistance = 100f;
+
+    // The bitmask that specifies which NavMesh areas to include in the search.
+    public int areaMask = NavMesh.AllAreas;
+
+    private void Update()
+    {
+        NavMeshHit hit;
+        bool success = NavMesh.SamplePosition(sourcePosition, out hit, maxDistance, areaMask);
+
+        if (success)
+        {
+            Debug.Log("Nearest NavMesh position found: " + hit.position);
+        }
+        else
+        {
+            Debug.Log("Could not find nearest NavMesh position.");
+        }
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we have a public Vector3 variable called sourcePosition that we set in the Inspector. 
+We also have public variables for maxDistance and areaMask, which we can adjust to control the search.
+
+In the Update method, we call NavMesh.SamplePosition with sourcePosition, out hit, maxDistance, and areaMask. 
+If the method is successful, we log the nearest NavMesh position to the console. If the method is not successful, we log an error message.
+
+
+
