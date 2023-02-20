@@ -1,0 +1,23 @@
+"UnityEngine.AI" is a namespace in Unity that provides classes for working with AI navigation and pathfinding. 
+
+Here are some of the classes and interfaces included in the "UnityEngine.AI" namespace:
+
+* NavMesh               : A static class that provides functionality for building and using a navigation mesh.
+* NavMeshAgent          : A component that can be attached to a GameObject to enable navigation and pathfinding using the navigation mesh.
+* NavMeshObstacle       : A component that can be attached to a GameObject to create an obstacle on the navigation mesh.
+* NavMeshPath           : A struct that represents a path through the navigation mesh.
+* NavMeshHit            : A struct that contains information about a hit on the navigation mesh, such as the position and normal of the hit.
+* NavMeshQueryFilter    : A class that provides filtering options for pathfinding queries,
+                          such as the maximum slope of surfaces the agent can traverse and the cost of traversing different types of areas.
+* NavMeshData           : A class that represents the data of a navigation mesh, such as the vertices, triangles, and other properties.
+* OffMeshLinkData       : A struct that contains information about an off-mesh link, such as the start and end positions and the type of link.
+* INavMeshData          : An interface that provides a way to create custom navigation mesh data sources.
+* INavMeshDataInstance  : An interface that represents an instance of navigation mesh data.
+* NavMeshLink           : A component that can be attached to a GameObject to create a link between different parts of the navigation mesh.
+
+
+These classes and interfaces provide a powerful set of tools for creating and using navigation meshes in your game,
+enabling your AI characters to navigate the environment intelligently and efficiently.
+
+
+
