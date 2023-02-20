@@ -1,0 +1,57 @@
+Animator.GetBoneTransform is a method in Unity's Animator class that returns the Transform of a specified bone.
+
+
+Here are the details:
+
+Method signature:
+
+public Transform GetBoneTransform(HumanBodyBones humanBoneId);
+
+
+Parameters:
+
+* HumanBodyBones humanBoneId: An enum representing the human bone to retrieve the Transform for.
+
+Returns:
+
+* A Transform object representing the specified bone.
+
+Description:
+
+GetBoneTransform retrieves the Transform object of a specific human bone from the avatar. 
+This is useful for interacting with parts of the body during animations or gameplay.
+
+Example usage:
+
+Let's say you have an animator controlling a humanoid character, and you want to get the Transform of the right hand bone. 
+You can do this with GetBoneTransform like so:
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class ExampleScript : MonoBehaviour
+{
+    private Animator animator;
+    private Transform rightHandTransform;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        rightHandTransform = animator.GetBoneTransform(HumanBodyBones.RightHand);
+    }
+
+    void Update()
+    {
+        // Use the rightHandTransform for something here
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+ In this example, we're getting the Animator component attached to the same GameObject as this script, 
+ and then retrieving the Transform of the right hand bone using GetBoneTransform. 
+ We're then storing that Transform in a private variable rightHandTransform so we can use it later.
+
+You can use this method to get the transform for any bone in the HumanBodyBones enum.
+
+
+
