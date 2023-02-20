@@ -1,0 +1,49 @@
+The UnityEngine.AI.NavMesh class provides functionality for building and using navigation meshes in a Unity scene.
+A navigation mesh is a collection of triangles that represent walkable surfaces in a scene,
+and it can be used by the Unity engine to find paths for characters or other objects to navigate.
+
+Here are some of the key methods and properties of the NavMesh class:
+
+Methods:
+
+* AddNavMeshData: Adds new navigation data to the scene.
+* BuildNavMesh: Builds a navigation mesh based on the current scene objects and settings.
+* FindClosestEdge: Finds the closest point on a navigation mesh edge to a specified position.
+* FindClosestEdgeAndPoly: Finds the closest point on a navigation mesh edge to a specified position, and also returns the corresponding polygon.
+* FindPath: Finds a path from a starting position to an ending position on the navigation mesh.
+* GetNavMeshData: Retrieves the navigation data for the current scene.
+* Raycast: Casts a ray against the navigation mesh, and returns information about any hit.
+
+Properties:
+
+* isScanning: Indicates whether the navigation mesh is currently being built or updated.
+* pathfindingIterationsPerFrame: The maximum number of pathfinding iterations that can be performed per frame.
+* avoidancePredictionTime: The time horizon used by the navigation system for predicting collisions and avoiding obstacles.
+* obstacleAvoidanceType: The type of obstacle avoidance algorithm to use (either "NoObstacleAvoidance" or "LowQualityObstacleAvoidance").
+
+An example of how to use the NavMesh class to find a path from one position to another:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+using UnityEngine.AI;
+
+public class NavMeshPathfinder : MonoBehaviour
+{
+    private NavMeshAgent agent;
+    public Transform target;
+
+    private void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(target.position);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we use the NavMeshAgent component to move the game object to a specified target position.
+The NavMeshAgent component internally uses the NavMesh class to find a path to the target.
+
+
+
