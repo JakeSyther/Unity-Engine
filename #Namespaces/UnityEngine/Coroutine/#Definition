@@ -1,0 +1,46 @@
+In Unity, a coroutine is a special type of function that can pause its execution and then resume it from where it left off.
+Coroutines allow you to execute code over several frames, which can be useful for tasks such as animations, movement,
+or other operations that may take more than one frame to complete.
+
+Coroutines work by using a special instruction called yield. When a coroutine encounters a yield statement,
+it will pause its execution and return control to the calling code. The coroutine can then be resumed at a later time,
+and will continue executing from where it left off.
+
+Coroutines are often used in conjunction with the StartCoroutine function, which is used to start a coroutine. 
+The StartCoroutine function takes a coroutine as a parameter and begins executing it. Once a coroutine is started,
+it will continue executing until it reaches the end of the function or encounters a yield statement.
+
+Coroutines can be useful in a variety of situations where you need to execute code over multiple frames, such as for complex animations or AI behavior. 
+They can also be used to execute code in a more organized and controlled manner, by allowing you to split up complex tasks into smaller, more manageable chunks.
+
+Overall, coroutines are a powerful and flexible tool for game development in Unity, and can be used to achieve a wide range of effects and behaviors.
+
+Is an overview of the properties, methods, and related classes for the UnityEngine.Coroutine class:
+
+Properties:
+
+* Current: Gets the object returned from the coroutine.
+* IsDone: Gets a value indicating whether the coroutine has finished execution.
+* IsRunning: Gets a value indicating whether the coroutine is currently running.
+
+Methods:
+
+* Stop(): Stops the coroutine if it is running.
+* ToString(): Returns a string that represents the current Coroutine object.
+
+Related Classes:
+
+* YieldInstruction: The base class for classes used to wait for a period of time, or until a certain condition is met, within a coroutine.
+* WaitForSeconds: A class used to wait for a specified number of seconds within a coroutine.
+* WaitForFixedUpdate: A class used to wait until the next fixed update frame within a coroutine.
+* WaitForEndOfFrame: A class used to wait until the end of the current frame within a coroutine.
+* WaitUntil: A class used to wait until a specified condition is met before continuing within a coroutine.
+* WaitWhile: A class used to wait while a specified condition is true before continuing within a coroutine.
+
+Keywords:
+
+* yield return: Used to pause a coroutine and return an object derived from YieldInstruction or CustomYieldInstruction.
+There are no further methods that belong to the properties or keywords associated with the UnityEngine.Coroutine class.
+
+
+
