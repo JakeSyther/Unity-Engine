@@ -1,0 +1,49 @@
+"NavMeshHit" is a struct in the UnityEngine.AI namespace in Unity that stores information about a hit in a NavMesh query.
+
+The NavMeshHit struct has the following properties:
+
+* position    : The position of the hit in world space.
+* normal      : The surface normal at the hit point.
+* distance    : The distance from the origin to the hit point.
+* mask        : The NavMesh area mask of the hit.
+* hit         : A boolean value indicating if the hit was successful or not.
+* navMeshHit  : The underlying NavMeshHit object used by the NavMesh system.
+
+An example of using NavMesh.SamplePosition with NavMeshHit to find a valid position on the NavMesh:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using UnityEngine;
+using UnityEngine.AI;
+
+public class NavMeshSamplePositionExample : MonoBehaviour
+{
+    private NavMesh navMesh;
+
+    private void Start()
+    {
+        navMesh = NavMesh.CalculateTriangulation();
+        if (!navMesh)
+        {
+            Debug.LogError("No NavMesh data found.");
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(ray.origin, out hit, 100.0f, NavMesh.AllAreas))
+            {
+                Debug.Log("Hit point: " + hit.position);
+            }
+        }
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, NavMesh.SamplePosition is used to find a valid position on the NavMesh at the location of the mouse click. 
+The resulting NavMeshHit is used to get the position of the hit, which is then printed to the console.
