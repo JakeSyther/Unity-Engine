@@ -7,14 +7,29 @@ x, y, z, w: The four components of the quaternion.
 
 And the following methods:
 
-* Quaternion.Euler: Returns a rotation that rotates around the x, y, and z axes.
-* Quaternion.LookRotation: Creates a rotation with the specified forward and upwards directions.
-* Quaternion.Slerp: Spherically interpolates between two rotations.
-* Quaternion.Angle: Returns the angle in degrees between two rotations.
-* Quaternion.FromToRotation: Returns a rotation that rotates from a specified from direction to a specified to direction.
+* Angle: Returns the angle in degrees between two rotations.
+* Dot: Calculates the dot product of two rotations.
+* Euler: Creates a rotation which rotates around the given angles.
+* FromToRotation: Creates a rotation which rotates from fromDirection to toDirection.
+* Inverse: Returns the inverse of the rotation.
+* Lerp: Interpolates between two rotations by t.
+* LookRotation: Creates a rotation that looks in the given forward direction.
+* Slerp: Spherically interpolates between two rotations by t.
+* ToAngleAxis: Returns the angle in degrees and the axis of the rotation.
 
 
-Here's an example of using a quaternion in Unity:
+Properties:
+
+* eulerAngles: Returns the rotation as Euler angles in degrees.
+* identity: The identity rotation (no rotation).
+* kEpsilon: The smallest value that the magnitude of a quaternion can have.
+* w: The W component of the quaternion.
+* x: The X component of the quaternion.
+* y: The Y component of the quaternion.
+* z: The Z component of the quaternion.
+
+
+An example of using a quaternion in Unity:
 
 // Rotate the object 90 degrees around the y-axis
 Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
