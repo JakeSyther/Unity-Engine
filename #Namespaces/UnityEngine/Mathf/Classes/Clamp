@@ -1,0 +1,33 @@
+Mathf.Clamp is a method in the Mathf class that is used to restrict a value to a specific range.
+
+Here are the details of Mathf.Clamp:
+public static float Clamp(float value, float min, float max);
+
+Parameters:
+
+value (float): The input value to be clamped.
+min (float): The minimum value that value can be.
+max (float): The maximum value that value can be
+
+Return Value:
+
+Returns value if it is within the range [min, max]. Otherwise, if value is less than min, the method returns min. If value is greater than max, the method returns max.
+
+Description:
+
+The Mathf.Clamp method is used to restrict a given input value value to a specific range. The range is defined by the min and max parameters.
+If value is within the range [min, max], it is returned as-is. Otherwise, if value is less than min, min is returned.
+If value is greater than max, max is returned.
+Mathf.Clamp can be used to ensure that a value does not exceed a certain limit or falls below a certain minimum value.
+
+Example:
+float health = 75.0f;
+health = Mathf.Clamp(health, 0.0f, 100.0f);
+
+In this example, the health variable is clamped between 0.0f and 100.0f. If the initial value of health is less than 0.0f, it is set to 0.0f.
+If the initial value of health is greater than 100.0f, it is set to 100.0f. If the initial value of health is between 0.0f and 100.0f, it is left unchanged.
+
+
+
+
+
