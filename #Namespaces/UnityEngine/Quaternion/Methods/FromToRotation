@@ -1,0 +1,58 @@
+Quaternion.FromToRotation is a static method in the Quaternion class in Unity that creates a rotation that rotates from one direction to another. 
+This method takes two vector arguments: the fromDirection vector, which is the starting direction, and the toDirection vector, which is the desired direction. 
+It then returns a Quaternion that represents the rotation needed to transform fromDirection into toDirection.
+
+The syntax for Quaternion.FromToRotation:
+
+public static Quaternion FromToRotation(Vector3 fromDirection, Vector3 toDirection);
+
+
+Here are some examples of how to use Quaternion.FromToRotation:
+
+Example 1: Rotate an object to face a target
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Transform target;
+
+void Update() {
+    // Get the direction from the current position to the target
+    Vector3 directionToTarget = target.position - transform.position;
+
+    // Create a rotation that will rotate the object to face the target
+    Quaternion targetRotation = Quaternion.FromToRotation(Vector3.forward, directionToTarget);
+
+    // Apply the rotation to the object
+    transform.rotation = targetRotation;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we want to rotate an object to face a target. 
+First, we calculate the direction from the current position to the target, and then we use Quaternion.FromToRotation to create a rotation
+that will rotate the object from its current forward direction (Vector3.forward) to the direction of the target.
+Finally, we apply the rotation to the object's transform.
+
+Example 2: Align an object's up direction with a surface normal
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public Vector3 surfaceNormal;
+
+void Update() {
+    // Create a rotation that aligns the object's up direction with the surface normal
+    Quaternion surfaceRotation = Quaternion.FromToRotation(transform.up, surfaceNormal) * transform.rotation;
+
+    // Apply the rotation to the object
+    transform.rotation = surfaceRotation;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we want to align an object's up direction with a surface normal. 
+We use Quaternion.FromToRotation to create a rotation that rotates the object's up direction (transform.up) to the surface normal.
+We then multiply this rotation by the object's current rotation to ensure that the object maintains its previous orientation. 
+
+Finally, we apply the resulting rotation to the object's transform.
+
+
+
+
