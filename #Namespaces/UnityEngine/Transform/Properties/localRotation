@@ -1,0 +1,37 @@
+In Unity, a Quaternion represents a rotation in 3D space, and it can be used to rotate a Transform.
+The localRotation property of a Transform is a Quaternion that represents the rotation of the Transform relative to its parent.
+
+Here's a breakdown of the localRotation property and how it works:
+
+Property Name: localRotation
+Property Type: Quaternion
+Description: Represents the rotation of the Transform relative to its parent.
+Access Modifier: Public
+Syntax: transform.localRotation
+Values: A Quaternion that represents a rotation in 3D space.
+
+Example Usage:
+
+using UnityEngine;
+
+public class Example : MonoBehaviour
+{
+    void Update()
+    {
+        // Get the current local rotation of the transform
+        Quaternion localRotation = transform.localRotation;
+
+        // Rotate the transform on the x-axis by 45 degrees
+        localRotation *= Quaternion.Euler(45, 0, 0);
+
+        // Set the local rotation of the transform to the new rotation
+        transform.localRotation = localRotation;
+    }
+}
+
+
+In the example above, we're getting the current localRotation of a Transform and rotating it by 45 degrees around the x-axis using the Quaternion.Euler method.
+We then set the localRotation of the Transform to the new rotated value.
+
+Note that the localRotation property is relative to the parent of the Transform, so if the parent is rotated, the localRotation will be affected as well.
+If you want to rotate a Transform in global space instead of local space, you can use the rotation property instead of localRotation.
