@@ -1,0 +1,65 @@
+An overview of the properties, methods, and structures in the UnityEngine.Mathf class in Unity:
+
+Properties:
+
+Epsilon: The smallest value that can be represented by a floating point number.
+Infinity: A representation of positive infinity.
+NegativeInfinity: A representation of negative infinity.
+PI: The mathematical constant pi.
+Deg2Rad: The conversion factor for degrees to radians.
+Rad2Deg: The conversion factor for radians to degrees.
+
+Methods:
+
+Abs: Returns the absolute value of a number.
+Acos: Returns the arc cosine of a number.
+Asin: Returns the arc sine of a number.
+Atan: Returns the arc tangent of a number.
+Atan2: Returns the angle in radians between the positive x-axis and the point (x, y).
+Ceil: Returns the smallest integer greater than or equal to a number.
+Clamp: Restricts a value to a specified range.
+ClosestPowerOfTwo: Returns the closest power of two that is greater than or equal to the input value.
+Cos: Returns the cosine of an angle in radians.
+DeltaAngle: Returns the shortest difference between two angles.
+Exp: Returns the exponential of a specified number.
+Floor: Returns the largest integer less than or equal to a number.
+Gamma: Returns the value of the gamma function of the specified number.
+Lerp: Linearly interpolates between two values.
+LerpAngle: Linearly interpolates between two angles.
+Log: Returns the natural logarithm of a specified number.
+Log10: Returns the base 10 logarithm of a specified number.
+Max: Returns the larger of two values.
+Min: Returns the smaller of two values.
+MoveTowards: Moves a value from the current value towards a target value.
+NextPowerOfTwo: Returns the next power of two that is greater than the input value.
+PerlinNoise: Generates a Perlin noise value in the range [0,1].
+PingPong: Returns a value that oscillates between two values over a specified time period.
+Pow: Returns a specified number raised to the specified power.
+Repeat: Returns the remainder of a division operation.
+Round: Rounds a value to the nearest integer.
+Sign: Returns the sign of a number.
+Sin: Returns the sine of an angle in radians.
+SmoothDamp: Gradually changes a value towards a target value over time.
+SmoothDampAngle: Gradually changes an angle towards a target angle over time.
+Sqrt: Returns the square root of a specified number.
+Tan: Returns the tangent of an angle in radians.
+
+
+Constants:
+
+Deg2Rad: The conversion factor for degrees to radians.
+Epsilon: The smallest value that can be represented by a floating point number.
+Infinity: A representation of positive infinity.
+NegativeInfinity: A representation of negative infinity.
+PI: The mathematical constant pi.
+Rad2Deg: The conversion factor for radians to degrees.
+Structures:
+
+Plane: A structure that represents a plane in 3D space.
+Ray: A structure that represents a ray in 3D space.
+Rect: A structure that represents a rectangle in 2D space.
+Vector2: A structure that represents a vector in 2D space.
+Vector3: A structure that represents a vector in 3D space.
+Vector4: A structure that represents a vector in 4D space.
+
+
