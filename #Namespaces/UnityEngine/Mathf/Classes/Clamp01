@@ -1,0 +1,19 @@
+Mathf.Clamp01 is a static method in the Mathf class in Unity that clamps a value to the range of 0 to 1.
+
+Here's the signature of the method:
+
+public static float Clamp01(float value)
+
+value: The value to be clamped.
+The method returns the input value if it is between 0 and 1, otherwise it returns 0 if the value is less than 0, or 1 if the value is greater than 1.
+
+Here's an example usage:
+float input = 1.5f;
+float clampedInput = Mathf.Clamp01(input); // clampedInput = 1.0f
+
+In the above example, the input value of 1.5f is greater than 1, so Clamp01 returns 1.0f.
+
+Mathf.Clamp01 is commonly used for normalizing values, such as when working with color or opacity values, where the valid range is 0 to 1.
+
+
+
