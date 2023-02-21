@@ -1,0 +1,35 @@
+The Mathf.PingPong function returns a value that "bounces" back and forth between 0 and the specified length, based on the input value.
+
+
+Here is the signature of the function:
+public static float PingPong(float t, float length);
+
+Here is what each parameter means:
+
+t: The input value that determines the position of the "bounce". This value must be non-negative.
+length: The total length of the "bounce". The returned value will always be between 0 and this value.
+
+And here are some additional details:
+
+The function uses a sine wave to interpolate between 0 and length.
+If t is greater than or equal to length, the function returns 0, indicating that the "bounce" has started over again.
+The function is often used in game development to create repeating, oscillating motion.
+
+
+
+Here is an example usage of Mathf.PingPong:
+public class PingPongExample : MonoBehaviour
+{
+    public float speed = 1.0f;
+    public float length = 5.0f;
+
+    void Update()
+    {
+        float position = Mathf.PingPong(Time.time * speed, length);
+        transform.position = new Vector3(position, 0, 0);
+    }
+}
+
+In this example, the object's position along the X axis is set to the value returned by Mathf.PingPong,
+which creates a repeating motion that bounces back and forth along the X axis. 
+The speed parameter controls how quickly the motion moves, and the length parameter controls the distance of the "bounce".
