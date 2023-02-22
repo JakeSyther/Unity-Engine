@@ -1,0 +1,33 @@
+The Animator.rootRotation property is a Quaternion value that represents the rotation of the root motion of an Animator component.
+The root motion is the movement and rotation of the whole character, including its hips, during an animation. 
+This property is typically used in combination with the Animator.applyRootMotion property,
+which determines whether or not the root motion is applied to the character's Transform.
+
+Here are some details about the Animator.rootRotation property:
+
+* Type: Quaternion
+* Access: Get/Set
+* Default value: Quaternion.identity
+* Scope: Public
+* Member of: Animator class
+
+In addition to the standard Quaternion properties and methods, the Animator.rootRotation property has the following properties:
+
+eulerAngles: A Vector3 representing the rotation of the Quaternion in degrees.
+Note that modifying this property will also modify the Quaternion itself.
+
+
+An example of how to use the Animator.rootRotation property to rotate a character based on its root motion:
+
+// Get the Animator component on the character
+Animator animator = GetComponent<Animator>();
+
+// Rotate the character based on its root motion
+transform.rotation *= animator.rootRotation;
+
+In this example, we first get a reference to the Animator component on the character using GetComponent.
+We then rotate the character's Transform by multiplying its current rotation by the Animator.rootRotation value.
+This will rotate the character in the direction of its root motion during the current animation.
+
+
+Unity Documentation = https://docs.unity3d.com/ScriptReference/Animator-rootRotation.html
