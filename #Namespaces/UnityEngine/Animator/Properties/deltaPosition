@@ -1,0 +1,55 @@
+Animator.deltaPosition is a property of the Animator class in Unity that allows you to get the difference in position of the animated object
+between the current and previous frame. This property is of type Vector3 and is read-only.
+
+Here are some important things to note about Animator.deltaPosition:
+
+* The value of Animator.deltaPosition is only valid during the Animator component's OnAnimatorMove callback function. 
+  This callback function is called after the Update function and before the LateUpdate function in the same frame.
+
+* Animator.deltaPosition is useful for modifying the position of the animated object in response to its animation. 
+  For example, you could use it to move a character based on its animation, or to move an object along a path.
+
+* Because Animator.deltaPosition is only valid during the OnAnimatorMove callback function, you can't use it in other functions like Update or LateUpdate. 
+  If you need to use the delta position in other functions, you'll need to store it in a separate variable during the OnAnimatorMove callback.
+
+* If the object being animated has a rigidbody attached, you should not modify its position directly using Animator.deltaPosition.
+  Instead, you should modify the rigidbody's position using the rigidbody.MovePosition() method, which takes into account the object's 
+  velocity and other physical properties.
+
+An example of how to use Animator.deltaPosition to move an object along a path based on its animation
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public class MoveAlongPath : MonoBehaviour
+{
+    public float speed = 1f; // speed of movement
+    private Vector3 lastPosition; // store the last position of the object
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        lastPosition = transform.position;
+    }
+
+    private void OnAnimatorMove()
+    {
+        // get the delta position of the object from its animation
+        Vector3 deltaPosition = animator.deltaPosition;
+
+        // move the object based on its delta position and speed
+        transform.position += deltaPosition * speed;
+
+        // store the current position as the last position
+        lastPosition = transform.position;
+    }
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we're using Animator.deltaPosition to get the difference in position between the current and previous frame,
+and then using that value to move the object along a path. We're also storing the last position of the object in a separate variable, 
+so we can use it to calculate the object's velocity if we need to.
+
+
+
