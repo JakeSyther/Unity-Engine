@@ -1,0 +1,26 @@
+The Transform.Rotate method allows you to rotate a GameObject around one or more of its axes by a given amount in degrees.
+The rotation can be specified in either world or local space, depending on the relativeTo parameter.
+
+Here are the parameters for the Transform.Rotate method:
+
+* Vector3: the amount to rotate the GameObject around each of its axes, in degrees.
+* Space relativeTo: whether to rotate the GameObject in world or local space. 
+
+If you pass Space.Self, the rotation is applied in the object's local space; if you pass Space.World, it is applied in world space.
+
+It's important to note that Transform.Rotate modifies the Transform.rotation property, which is a Quaternion that represents the current rotation of the GameObject.
+
+If you want to specify an absolute rotation rather than a relative one, you can set the Transform.rotation property directly instead of using Transform.Rotate.
+
+An example of using Transform.Rotate to rotate a GameObject by a certain amount around its local x-axis:
+
+// Rotate the GameObject 30 degrees around its local x-axis
+transform.Rotate(30f, 0f, 0f, Space.Self);
+
+In this example, transform is a reference to the Transform component of the GameObject you want to rotate.
+
+The Space.Self parameter indicates that the rotation should be applied in local space, and the three floats specify the amount to rotate around each axis.
+
+
+Unity Documentation : https://docs.unity3d.com/ScriptReference/Transform.Rotate.html
+
