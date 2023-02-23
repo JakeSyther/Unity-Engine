@@ -1,0 +1,21 @@
+A list of constant values in the Mathf class:
+
+* Epsilon: The smallest possible difference between two floats that can be distinguished. Approximates to 1.401298E-45.
+* NegativeInfinity: Represents negative infinity.
+* Infinity: Represents infinity.
+* Deg2Rad: The conversion factor for converting degrees to radians. Approximates to 0.01745329.
+* Rad2Deg: The conversion factor for converting radians to degrees. Approximates to 57.29578.
+* PI: The mathematical constant Pi. Approximates to 3.141593.
+
+Note that these values are all public static fields of the Mathf class and can be accessed directly without creating an instance of the class.
+
+
+Examples: 
+
+Mathf.Deg2Rad               : Convert degrees to radians: float rad = angleInDegrees * Mathf.Deg2Rad;
+Mathf.Epsilon               : Use as a tolerance for float comparisons: if (Mathf.Abs(a - b) < Mathf.Epsilon) { // do something }
+Mathf.Infinity              : A float representing infinity: float max = Mathf.Infinity;
+Mathf.NegativeInfinity      : A float representing negative infinity: float min = Mathf.NegativeInfinity;
+Mathf.PI: The value of pi   : float circumference = 2 * Mathf.PI * radius;
+Mathf.Rad2Deg               : Convert radians to degrees: float deg = angleInRadians * Mathf.Rad2Deg;
+Mathf.SmallestNonzeroFloat  : The smallest non-zero float value: float verySmall = Mathf.SmallestNonzeroFloat;
