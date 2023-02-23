@@ -1,0 +1,41 @@
+The Animator window's Layers section allows you to organize and manage the animation layers of an Animator component.
+
+Here are the details:
+
+* Layers: This section lists all the layers that are currently defined in the Animator component.
+  You can add or remove layers by clicking the plus or minus button, respectively.
+
+* Layer Properties: For each layer, you can see its index, weight, and blending mode.
+  The weight determines how much influence the layer has on the final animation output,
+  while the blending mode controls how the layer's animation is blended with the animations of other layers.
+
+* Layer Mask: You can define a layer mask for each layer, which determines which body parts are affected by the layer's animation. 
+  This is particularly useful for IK (Inverse Kinematics) animations.
+
+* Layer Settings: You can access the layer settings by clicking the cogwheel icon. 
+  This allows you to specify the layer's default state and the conditions that need to be met for it to become active.
+
+* Override Layers: You can add Override layers by clicking the plus button and selecting "New Override Layer".
+  This allows you to override specific animations or properties of the base layer.
+
+* Avatar Mask: You can create an Avatar Mask for each layer, which further refines the layer mask by specifying which bones are affected by the layer's animation.
+
+* Sync Layer Selection: You can enable Sync Layer Selection by clicking the corresponding button in the Layers section. 
+  This causes the layer selection to be synchronized across all Animator windows that are open for the same Animator component.
+  
+Also some more informations:
+  
+"IK" stands for Inverse Kinematics, and in the context of an animator, it refers to a method of animating a character's
+limbs and body in a more natural and realistic way.
+
+In traditional animation, an animator would manually move each joint in a character's body to create the desired motion.
+However, this can be time-consuming and can result in stiff or unnatural-looking animations.
+
+With Inverse Kinematics, the animator specifies a desired end effector position (such as the position of a character's hand)
+and the animation system automatically calculates the joint angles needed to reach that position. This results in more fluid and natural-looking motion.
+
+In Unity's Animator, the IK system allows animators to create animations that are more realistic by using IK to animate limbs, 
+such as arms and legs, and to manipulate the character's posture and position in the environment.
+
+
+
