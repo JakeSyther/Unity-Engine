@@ -1,0 +1,87 @@
+Unity's collider system is a physics engine that detects and responds to collisions between game objects in a Unity scene.
+It allows game objects to interact realistically with each other, such as bouncing off walls or detecting if the player has collided with an enemy.
+
+The Collider component is used to define the shape and size of an object for collision detection purposes. 
+
+Here's an overview of the main classes, properties, and structures related to Unity's Collider system:
+
+* Collider: The base class for all types of colliders in Unity. It contains common properties and methods that all colliders share. 
+
+* BoxCollider: A collider that is shaped like a box. It is defined by a center point and a size. 
+
+* SphereCollider: A collider that is shaped like a sphere. It is defined by a center point and a radius.
+
+* CapsuleCollider: A collider that is shaped like a capsule. It is defined by a center point, a height, and a radius.
+
+* MeshCollider: A collider that is shaped like a mesh. It uses a mesh as its shape. 
+
+* RaycastCollider: A collider that is used for raycasting only. It is part of the UnityEngine.Experimental.Physics namespace.
+
+* Collider2D: The base class for all types of 2D colliders in Unity. It contains common properties and methods that all 2D colliders share. 
+
+* CircleCollider2D: A 2D collider that is shaped like a circle. It is defined by a center point and a radius.
+
+* BoxCollider2D: A 2D collider that is shaped like a box. It is defined by a center point and a size. 
+
+* PolygonCollider2D: A 2D collider that is shaped like a polygon. It uses a series of points to define its shape.
+
+* EdgeCollider2D: A 2D collider that is shaped like a line segment. It is defined by two points. 
+
+* CompositeCollider2D: A 2D collider that combines multiple colliders into a single collider. It is part of the UnityEngine.Experimental.Physics2D namespace.
+
+
+Some common properties of colliders include:
+
+* enabled: A boolean value indicating whether the collider is enabled.
+
+* isTrigger: A boolean value indicating whether the collider is a trigger.
+
+* bounds: The bounding box that encloses the collider.
+
+* center: The center point of the collider.
+
+* attachedRigidbody: The Rigidbody component that is attached to the collider, if any.
+
+* sharedMaterial: The physics material that is shared by all colliders with the same material.
+
+* contactOffset: The distance that Unity uses to separate colliders to prevent overlapping.
+
+
+
+Some common methods of colliders include:
+
+* ClosestPoint: Returns the closest point on the collider to a specified position.
+
+* Raycast: Casts a ray against the collider.
+
+* OverlapPoint: Returns true if the specified point overlaps with the collider.
+
+* OnCollisionEnter: Called when a collision occurs with the collider.
+
+* OnTriggerEnter: Called when a trigger event occurs with the collider.
+
+* OnTriggerExit: Called when a trigger event ends with the collider.
+
+* OnDrawGizmos: Draws the collider in the scene view, for debugging purposes.
+
+
+
+These are just some of the most common classes, properties, and methods related to Unity's Collider system. 
+
+
+Colliders can be added to game objects either through the Unity editor or through scripting.
+Once a collider is attached to a game object, it will automatically interact with other colliders in the scene based on their physical properties,
+such as mass and velocity.
+
+The collider system is an essential component of any physics-based game, as it allows for realistic interactions between game objects and the environment.
+It can be used to create a wide range of gameplay mechanics, such as platforming, physics puzzles, and combat systems.
+
+
+There are many more, and the documentation provided by Unity is a great resource for learning more about each one in detail.
+ref = https://docs.unity3d.com/ScriptReference/Collider.html
+
+
+
+
+
+
