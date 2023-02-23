@@ -1,0 +1,20 @@
+Mathf.Epsilon is a constant value defined in Unity's Mathf class.
+It is the smallest positive number that can be represented in a float variable in Unity.
+It has a value of approximately 1.401298E-45.
+
+The primary use of Mathf.Epsilon is for comparing floating-point values to determine if they are approximately equal. 
+This is because due to the way floating-point numbers are represented, exact equality tests can sometimes fail. 
+Instead, it is common to use an "epsilon" value, which represents a small tolerance for differences between two numbers.
+
+For example, to compare two floats a and b and determine if they are approximately equal, you can use the following code:
+
+
+if (Mathf.Abs(a - b) < Mathf.Epsilon)
+{
+    // a and b are approximately equal
+}
+
+In addition to Mathf.Epsilon, the Mathf class also includes other useful mathematical constants and functions, such as Pi, Sqrt, Cos, Sin, and more.
+
+
+
