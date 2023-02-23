@@ -1,0 +1,42 @@
+"Animator.GetLayerIndex" is a method that returns the layer index of a given layer name in the Animator controller.
+It takes a string parameter representing the layer name and returns an integer value that represents the index of the layer in the Animator controller.
+
+Here are some important points to keep in mind when using Animator.GetLayerIndex:
+
+If the specified layer name does not exist in the Animator controller, Animator.GetLayerIndex returns -1.
+
+The index returned by Animator.GetLayerIndex can be used with other Animator methods that require a layer index parameter, 
+such as GetCurrentAnimatorStateInfo and GetNextAnimatorStateInfo.
+
+If you have multiple Animator components attached to a game object, you can use the GetLayerIndex method on each of them to retrieve 
+the layer index in each component's Animator controller.
+
+
+
+An example of how to use Animator.GetLayerIndex:
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public class Example : MonoBehaviour
+{
+    private Animator _animator;
+    private int _layerIndex;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _layerIndex = _animator.GetLayerIndex("MyLayerName");
+    }
+
+    private void Update()
+    {
+        // Do something with the layer index
+        var stateInfo = _animator.GetCurrentAnimatorStateInfo(_layerIndex);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+In this example, we use Animator.GetLayerIndex to get the index of a layer named "MyLayerName" in the Animator component attached to the game object.
+We store the index in a private variable _layerIndex and use it in the Update method to retrieve the current animation state info for the specified
+layer using GetCurrentAnimatorStateInfo.
+
+
+
