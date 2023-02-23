@@ -1,0 +1,28 @@
+The Animator.SetLayerWeight method is used to set the weight of a given layer in an Animator component.
+Layers in an Animator are used to define different sets of animations that can be blended together. 
+For example, a lower body layer might control walking animations, while an upper body layer might control arm animations. 
+By changing the weight of each layer, you can control how much each animation affects the overall animation of the character.
+
+Here's the syntax for the method:
+public void SetLayerWeight(int layerIndex, float weight);
+
+The layerIndex parameter is an integer that specifies the index of the layer you want to set the weight for. 
+The weight parameter is a float that specifies the new weight for the layer, which should be a value between 0 and 1.
+
+Here are a few things to keep in mind when using Animator.SetLayerWeight:
+
+* The weight of a layer determines how much its animations contribute to the final animation.
+  A weight of 0 means that the layer's animations have no effect, while a weight of 1 means that the layer's animations have full effect
+  
+* You can use the Animator.GetLayerWeight method to retrieve the current weight of a layer.
+
+* You can also use Animator.SetLayerWeight to blend between different sets of animations.
+  For example, you might have a lower body layer with walking animations, and a upper body layer with shooting animations. 
+  By blending between the two layers, you can create a character that walks and shoots at the same time.
+  
+* It's important to note that layers can interact with each other in unexpected ways.
+  For example, if you have a lower body layer with a walking animation and an upper body layer with a shooting animation,
+  the upper body animation might interfere with the lower body animation and cause the character to appear to stutter or jump.
+  To avoid these kinds of issues, it's important to carefully design your animation layers and test them thoroughly.
+
+
