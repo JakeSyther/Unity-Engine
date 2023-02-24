@@ -1,0 +1,28 @@
+OnControllerColliderHit is a function in Unity's MonoBehaviour class that is called when a character controller collides with a rigidbody or a collider.
+It takes a ControllerColliderHit object as its only parameter, which contains information about the collision.
+
+Here are some things to keep in mind when using OnControllerColliderHit:
+
+* "OnControllerColliderHit" is only called when a character controller collides with a rigidbody or a collider that is marked as a trigger.
+* "OnControllerColliderHit" is called before the Update() function, so you can use it to modify the character's movement before it is processed for the frame.
+* The "ControllerColliderHit" object that is passed to OnControllerColliderHit contains information about the collision, 
+  including the point of contact, the normal of the surface that was hit, and the GameObject that was hit.
+* If you want to stop the character's movement when it collides with an object, you can set the character's velocity to zero in the OnControllerColliderHit function.
+
+An example of how to use OnControllerColliderHit to stop a character's movement when it collides with an object:
+
+------------------------------------------------------------------------------------------------------------------------------
+void OnControllerColliderHit(ControllerColliderHit hit) {
+    // Check if the object that was hit is a wall
+    if (hit.gameObject.tag == "Wall") {
+        // Stop the character's movement
+        GetComponent<CharacterController>().velocity = Vector3.zero;
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------
+
+In this example, the OnControllerColliderHit function checks if the object that was hit has a tag of "Wall". 
+If it does, the function sets the character's velocity to zero, which stops its movement.
+
+
+
