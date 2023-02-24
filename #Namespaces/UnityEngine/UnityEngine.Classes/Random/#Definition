@@ -1,0 +1,27 @@
+UnityEngine.Random is a class in Unity that provides a set of methods for generating random numbers and values.
+
+Here is a summary of some of the methods available in UnityEngine.Random:
+
+* Range(min, max): Returns a random integer between min (inclusive) and max (exclusive).
+
+* value: Returns a random float between 0.0f (inclusive) and 1.0f (exclusive).
+
+* ColorHSV: Returns a random color with a specified hue, saturation, and value.
+
+* PerlinNoise(x, y): Returns a random noise value based on Perlin noise algorithm.
+
+* insideUnitSphere: Returns a random point inside a unit sphere centered at the origin.
+
+* onUnitSphere: Returns a random point on the surface of a unit sphere centered at the origin.
+
+* RotationUniform: Returns a random Quaternion representing a rotation around a random axis.
+
+* RangeInt(min, max): Returns a random integer between min (inclusive) and max (inclusive).
+
+* State: Allows you to set and get the current state of the random number generator, which can be useful for generating deterministic random sequences.
+
+These methods can be used for a variety of tasks in game development, such as generating random spawn locations,
+creating randomized terrain, or implementing random events in gameplay.
+
+
+
