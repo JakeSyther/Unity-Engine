@@ -1,0 +1,7 @@
+MonoBehaviour is a base class in Unity that allows scripts to interact with the GameObjects and Components in a scene.
+It provides a range of built-in functions that can be overridden to add custom behavior to game objects and respond to events like updates, collisions, and input.
+MonoBehaviour is commonly used in Unity game development to create interactive game objects, control animations and UI elements, manage game state and much more.
+
+More information : https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+
+
