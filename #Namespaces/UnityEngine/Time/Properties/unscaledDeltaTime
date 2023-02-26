@@ -1,0 +1,48 @@
+unscaledDeltaTime is a property in the UnityEngine.Time class that returns the time in seconds it took to complete the last frame,
+without taking into account the time scale of the game.
+This means that it represents the actual time that has passed, regardless of whether the game is running in slow motion or fast forward mode.
+
+An example to help illustrate how unscaledDeltaTime works:
+
+Let's say that you have a simple game where the player controls a character that moves across the screen.
+You want the character to move at a constant speed, regardless of the time scale of the game.
+To do this, you can use unscaledDeltaTime in your movement code to calculate the distance that the character should move in each frame.
+
+
+Here's an example code snippet that shows how you might use unscaledDeltaTime to move the character:
+-------------------------------------------------------------------------------------------------------
+
+public class PlayerController : MonoBehaviour
+{
+    public float speed = 10.0f;
+
+    private void Update()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Calculate the distance that the player should move based on the time that has passed
+        float distance = speed * Time.unscaledDeltaTime;
+        Vector3 direction = new Vector3(horizontalInput, 0.0f, verticalInput).normalized;
+
+        // Move the player in the desired direction
+        transform.position += direction * distance;
+    }
+}
+
+-------------------------------------------------------------------------------------------------------
+
+In this example, unscaledDeltaTime is used to calculate the distance that the player should move in each frame.
+This ensures that the player moves at a constant speed, regardless of the time scale of the game.
+Without using unscaledDeltaTime, the player's movement would be affected by the time scale of the game,
+which could make the game feel sluggish or unresponsive.
+
+In summary, unscaledDeltaTime is a useful property in Unity that allows you to calculate time-based values in your game logic without being affected
+by the time scale of the game. 
+
+It's particularly useful for creating gameplay mechanics that rely on precise timing or consistent movement speeds.
+
+
+
+
+
