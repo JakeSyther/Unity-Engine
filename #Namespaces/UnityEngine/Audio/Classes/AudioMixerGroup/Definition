@@ -1,0 +1,28 @@
+"UnityEngine.Audio.AudioMixerGroup" is a class in the Unity game engine that represents a group of audio sources within an audio mixer.
+An audio mixer group allows you to control the volume and effects settings for multiple audio sources at once,
+which can be useful for creating complex audio setups or applying effects to groups of sounds.
+
+Here are some of the key features and uses of the UnityEngine.Audio.AudioMixerGroup class:
+
+* Volume Control  : AudioMixerGroup allows you to set the output volume level for a group of audio sources. 
+                    This can be done using the volume property, which ranges from 0.0 (silence) to 1.0 (full volume).
+                    By adjusting the volume level for a group of sources, 
+                    you can create dynamic audio transitions or balance the overall mix of your scene.
+
+* Effect Chains   : AudioMixerGroup also supports the use of audio effects. By attaching effects to a group, 
+                    you can apply them to all audio sources within that group. Effects can be added or removed using the audioMixer property,
+                    which references the audio mixer that the group is a part of.
+
+* Routing         : AudioMixerGroup allows you to route audio to other mixer groups. 
+                    This can be useful for creating complex audio setups or controlling the flow of audio in your scene. 
+                    The outputAudioMixerGroup property specifies the destination group for audio output from the group.
+
+* Snapshot Control: AudioMixerGroup supports the use of audio snapshots, which allow you to store and recall different mixer settings. 
+                    Snapshots can be created using the Snapshot class and recalled using the TransitionToSnapShot() method.
+
+These are just a few of the features and uses of the UnityEngine.Audio.AudioMixerGroup class. 
+By combining AudioMixerGroup with other audio tools in Unity, such as AudioSource, AudioClip, and AudioListener,
+you can create a wide range of dynamic and immersive audio experiences in your games or applications.
+
+
+Kindly consider visiting the official website for further information : https://docs.unity3d.com/ScriptReference/Audio.AudioMixerGroup.html
