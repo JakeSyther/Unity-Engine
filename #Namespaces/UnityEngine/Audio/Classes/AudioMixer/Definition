@@ -1,0 +1,32 @@
+UnityEngine.Audio.AudioMixer is a class in the Unity game engine that represents an audio mixer. 
+An audio mixer allows you to apply audio effects and control the levels of different audio sources in a Unity scene. 
+You can use an audio mixer to create complex audio setups, apply effects to individual or groups of audio sources, 
+and create dynamic transitions between different audio states.
+
+Here are some of the key properties, methods, structures, and classes available in the UnityEngine.Audio.AudioMixer class:
+
+Properties:
+
+* outputAudioMixerGroup: Gets or sets the output AudioMixerGroup for the mixer. This determines where the mixed audio output is routed to.
+
+Methods:
+
+* FindMatchingGroups(): Searches the mixer for AudioMixerGroups that match a specified set of criteria, such as output volume or effect settings.
+* SetFloat()          : Sets a float parameter on the mixer. This can be used to control effect settings or other mixer parameters.
+* GetFloat()          : Gets the value of a float parameter on the mixer.
+* ClearFloat()        : Clears the value of a float parameter on the mixer.
+
+Structures:
+
+AudioMixerUpdateMode: An enum that determines how the mixer updates its internal state.
+This can be set to either Normal, which updates every frame, or UnscaledTime, which updates based on unscaled time.
+
+Classes:
+
+* AudioMixerGroup: Represents a group of audio sources in the mixer. 
+                   AudioMixerGroup can be used to control the volume and effects settings for multiple audio sources at once. 
+                   AudioMixerGroup has properties for defining output levels, effects, and routing.
+                                
+These are just a few of the properties, methods, structures, and classes available in the AudioMixer class.
+There are many more features available in the audio mixer system, including support for sending audio to external devices or plugins, 
+grouping and routing audio, and creating complex effect chains.
