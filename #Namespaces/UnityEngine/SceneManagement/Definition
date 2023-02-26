@@ -1,0 +1,31 @@
+UnityEngine.SceneManagement is a namespace in Unity that contains classes and functionality for managing scenes in a game.
+Scenes are essentially different levels or sections of a game, and can contain different game objects, environments, and other assets.
+
+Here are some of the key classes and functionality in the UnityEngine.SceneManagement namespace:
+
+SceneManager: This is the main class for managing scenes in Unity.
+It provides methods for loading and unloading scenes, getting information about scenes, and setting the active scene. 
+Some of the key methods in this class include LoadScene, UnloadScene, GetSceneByName, and SetActiveScene.
+
+Scene: This class represents a single scene in a game.
+It provides information about the scene such as its name, path, and build index.
+You can also use this class to add or remove game objects from a scene, or get information about the objects in the scene.
+
+SceneManagement.SceneManager.LoadSceneMode: This enumeration defines the different modes that can be used when loading a scene.
+The available modes are Single, Additive, and Single + Additive.
+
+SceneManagement.LoadSceneParameters: This class is used to provide additional parameters when loading a scene.
+For example, you can use this class to specify whether to load the scene asynchronously, or to set a custom loading screen.
+
+SceneManagement.SceneManager.sceneLoaded: This event is raised when a scene has finished loading. 
+You can use this event to perform additional logic or setup after a scene has loaded.
+
+SceneManagement.SceneManager.sceneUnloaded: This event is raised when a scene has been unloaded. 
+You can use this event to perform any necessary cleanup or logic when a scene is no longer needed.
+
+Overall, the UnityEngine.SceneManagement namespace provides a wide range of functionality for managing scenes in Unity. 
+This can include loading and unloading scenes, switching between scenes, managing game objects within scenes, and more. 
+By using the classes and functionality provided in this namespace, you can create complex, multi-level games that are engaging and fun to play.
+
+
+
