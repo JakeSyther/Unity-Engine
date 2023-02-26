@@ -1,0 +1,37 @@
+UnityEngine.SceneManagement.Scene is a class in Unity that represents a single scene in a game.
+Scenes are essentially different levels or sections of a game, and can contain different game objects, environments, and other assets.
+
+Here are some of the key properties and methods in the UnityEngine.SceneManagement.Scene class:
+
+* name: This property gets or sets the name of the scene.
+
+* path: This property gets the path to the scene's asset file on disk.
+
+* buildIndex: This property gets the build index of the scene, which is the index assigned to the scene in the build settings.
+
+* isLoaded: This property gets a value indicating whether the scene is currently loaded.
+
+* rootCount: This property gets the number of root game objects in the scene.
+
+* GetRootGameObjects(): This method returns an array of the root game objects in the scene.
+
+* GetHashCode(): This method returns a hash code for the scene, which can be useful for identifying scenes in a game.
+
+* IsValid(): This method returns a value indicating whether the scene is a valid scene.
+
+* isDirty: This property gets a value indicating whether the scene has unsaved changes.
+
+* GetSceneByPath(string path): This method returns a scene given its path.
+
+* GetSceneByName(string name): This method returns a scene given its name.
+
+* Unload(): This method unloads the scene and all of its objects.
+
+* GetBuildIndexByScenePath(string scenePath): This method returns the build index of a scene given its path.
+
+Overall, the UnityEngine.SceneManagement.Scene class provides a range of properties and methods for getting information about a scene, 
+accessing the game objects within a scene, and managing scenes in a game. By using this class, you can create complex,
+multi-level games that are engaging and fun to play.
+
+
+
