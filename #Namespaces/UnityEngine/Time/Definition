@@ -1,0 +1,39 @@
+UnityEngine.Time is a class in the Unity game engine that provides access to information about time and timing within a Unity scene.
+It allows you to control the flow of time, measure the duration of events, and synchronize your game logic with real-world time.
+
+Here are some of the key properties, methods, structures, and classes available in the UnityEngine.Time class:
+
+Properties:
+
+* deltaTime         : Gets the time in seconds it took to complete the last frame.
+* time              : Gets the time in seconds since the start of the game.
+* timeScale         : Gets or sets the time scale of the game. This can be used to slow down or speed up the passage of time in your game.
+* unscaledDeltaTime : Gets the unscaled time in seconds it took to complete the last frame.
+* unscaledTime      : Gets the unscaled time in seconds since the start of the game.
+
+Methods:
+
+* timeSinceLevelLoad()  : Returns the time in seconds since the current level was loaded.
+* captureFramerate()    : Sets the target frame rate for the game.
+* fixedDeltaTime()      : Gets or sets the fixed time step for the game. This can be used to control the precision of physics simulations in your game.
+
+Structures:
+
+* DeltaTime: A struct that represents the time it took to complete the last frame. It has a float field called seconds, which stores the time in seconds.
+
+
+Classes:
+
+* TimeManager: A static class that manages the time in a Unity scene. It has methods for controlling the game's time scale,
+             capturing the frame rate, and controlling fixed time steps.
+
+
+These are just a few of the properties, methods, structures, and classes available in the UnityEngine.Time class.
+By using UnityEngine.Time in your game logic, you can create dynamic and responsive gameplay experiences that are synchronized with real-world time.
+
+
+
+
+"Kindly consider visiting the official website for further information."
+https://docs.unity3d.com/ScriptReference/Time.html
+
