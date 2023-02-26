@@ -1,0 +1,18 @@
+UnityEngine.SceneManagement.LoadSceneMode is an enumeration in Unity that defines the different modes that can be used when loading a scene using SceneManager.LoadScene.
+
+Here are the different modes and their brief explanations:
+
+LoadSceneMode.Single: This is the default mode and is used to load a scene and make it the active scene.
+If a scene is already active, it will be unloaded before the new scene is loaded. This mode is useful for loading a new level or section of a game.
+
+LoadSceneMode.Additive: This mode is used to load a scene on top of the currently active scene, rather than replacing it.
+This can be useful for creating complex scenes that span multiple levels or sections, or for loading a UI overlay on top of a game scene.
+
+LoadSceneMode.Single + LoadSceneMode.Additive: This mode is used to load a scene and make it the active scene, while also keeping the previously active scenes loaded. 
+This can be useful for creating complex, multi-level games that allow the player to move back and forth between different scenes.
+
+Overall, LoadSceneMode provides a way to control how scenes are loaded and unloaded in a Unity game. 
+By using the appropriate mode for each scene, you can create a game that flows smoothly and provides an engaging experience for the player.
+
+
+
