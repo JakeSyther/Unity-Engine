@@ -1,0 +1,27 @@
+Mathf.FloorToInt is a method in the Mathf class in Unity that returns the largest integer less than or equal to a given float value.
+It takes a single parameter, f, which is the float value to be rounded down to the nearest integer.
+
+The Mathf.FloorToInt method performs the same operation as Mathf.Floor, but returns the result as an integer value rather than a float value. 
+This can be useful in cases where you need to perform integer-based calculations or comparisons using a float value.
+
+Here is an example usage of Mathf.FloorToInt:
+
+float value = 4.6f;
+int result = Mathf.FloorToInt(value); // result will be 4
+
+
+In this example, value is a float value of 4.6, and Mathf.FloorToInt(value) is used to round down the value to the nearest integer, which is 4.
+
+It's worth noting that Mathf.FloorToInt can also be used with negative values, 
+in which case it will round the value down to the nearest integer value that is less than or equal to the given float value.
+
+
+For example:
+
+float value = -2.8f;
+int result = Mathf.FloorToInt(value); // result will be -3
+
+In this example, value is a negative float value of -2.8, and Mathf.FloorToInt(value) is used to round down the value to the nearest integer, which is -3.
+
+
+
