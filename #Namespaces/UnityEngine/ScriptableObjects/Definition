@@ -1,0 +1,90 @@
+What is a ScriptableObject?
+
+ScriptableObject is a class in Unity that allows you to create custom, reusable assets that can be used throughout your project.
+It is similar to a MonoBehaviour, but it does not require a GameObject to be attached to.
+Instead, it is a standalone asset that can be serialized and stored in your project's assets folder.
+
+How to create a ScriptableObject?
+
+To create a ScriptableObject, you must create a new C# script and inherit from the ScriptableObject class. 
+
+Here's an example:
+------------------------------------------------------------------
+using UnityEngine;
+
+public class MyScriptableObject : ScriptableObject
+{
+    public string myString;
+    public int myInt;
+}
+------------------------------------------------------------------
+
+Once you've created your ScriptableObject, you can create instances of it in the Unity Editor 
+by right-clicking in your project window and selecting Create -> MyScriptableObject.
+This will create a new asset that you can edit and use throughout your project.
+
+What are the benefits of using ScriptableObjects?
+
+Here are some benefits of using ScriptableObjects:
+
+* They allow you to create custom, reusable assets that can be shared throughout your project.
+* They can be serialized and stored in your project's assets folder, making it easy to share and version control them.
+* They do not require a GameObject to be attached to, which can make them more flexible than a MonoBehaviour.
+* They can be used to create global variables and settings that can be easily accessed from any script in your project.
+* They can be used to create event-driven systems that allow scripts to communicate with each other without creating direct dependencies between them.
+
+
+How to use a ScriptableObject?
+
+Once you've created a ScriptableObject, you can use it by creating an instance of it in your script.
+
+Here's an example:
+------------------------------------------------------------------
+public class MyScript : MonoBehaviour
+{
+    public MyScriptableObject myScriptableObject;
+    
+    void Start()
+    {
+        Debug.Log(myScriptableObject.myString);
+        Debug.Log(myScriptableObject.myInt);
+    }
+}
+------------------------------------------------------------------
+
+
+In this example, we've created a new MyScriptableObject instance and assigned it to a public field in our MyScript MonoBehaviour. 
+We can then access the fields of our ScriptableObject just like we would any other variable.
+
+How to share data between scenes?
+ScriptableObjects are a great way to share data between scenes in Unity.
+To do this, you can create a ScriptableObject instance and assign it to a static field in
+a MonoBehaviour that is marked with the [RuntimeInitializeOnLoadMethod] attribute.
+
+
+Here's an example:
+
+------------------------------------------------------------------------------------------------------------------------------------
+using UnityEngine;
+
+public class MyGameManager : MonoBehaviour
+{
+    public static MyScriptableObject myScriptableObject;
+    
+    [RuntimeInitializeOnLoadMethod]
+    static void Initialize()
+    {
+        myScriptableObject = ScriptableObject.CreateInstance<MyScriptableObject>();
+        DontDestroyOnLoad(myScriptableObject);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+In this example, we've created a new MyScriptableObject instance and assigned it to a static field in our MyGameManager MonoBehaviour.
+We've also marked the Initialize method with the [RuntimeInitializeOnLoadMethod] attribute, which ensures that it will be called when the game starts. 
+Finally, we've called DontDestroyOnLoad to ensure that the ScriptableObject instance persists between scene loads.
+
+
+
+
