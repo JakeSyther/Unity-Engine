@@ -1,0 +1,35 @@
+UnityEngine.StateMachineBehaviour is a class in Unity that allows you to create custom behaviours that can be added to state machines in Animator controllers.
+These behaviours can be used to add custom logic and functionality to your animations, such as playing sounds, spawning particles, or updating variables.
+
+Here are some of the key features and capabilities of StateMachineBehaviour:
+
+* StateMachineBehaviour is a subclass of UnityEngine.ScriptableObject, which means that each behaviour is its own asset
+  that can be saved and reused across multiple state machines.
+
+* You can create custom behaviours by subclassing StateMachineBehaviour and overriding its methods, 
+  such as OnStateEnter, OnStateUpdate, OnStateExit, and so on. 
+  These methods are called by the state machine at specific points during the animation playback, allowing you to run custom code.
+
+* Behaviours can access and modify the state machine's parameters and variables,
+  allowing you to synchronize animations with game logic and make them responsive to player input.
+
+* Behaviours can be added to state machines in the Animator window, either by dragging them from the Project view
+  or by creating them on-the-fly using the Add Behaviour button in the Inspector.
+  You can add multiple behaviours to a single state, or to the state machine as a whole.
+
+* Behaviours can be enabled or disabled at runtime, allowing you to control their behaviour dynamically based on game events or conditions.
+
+* StateMachineBehaviour supports serialization and deserialization, which means that you can save the state of a behaviour at runtime and reload it later.
+  This can be useful for creating save systems or for undo/redo functionality.
+
+* StateMachineBehaviour can be used in conjunction with other animation-related Unity features, such as blend trees, mecanim events,
+  and avatar masks, to create complex and responsive animations.
+
+
+Overall, StateMachineBehaviour is a powerful tool that allows you to extend the functionality of your animations and make them more interactive and dynamic.
+It's particularly useful for creating character animations in games, where you often need to synchronize animations with gameplay mechanics and player input.
+
+
+More information:
+https://docs.unity3d.com/ScriptReference/StateMachineBehaviour.html
+
