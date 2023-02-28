@@ -1,0 +1,36 @@
+Mathf.Min is a method in the Mathf class in Unity that returns the minimum value from two or more given float values.
+It takes one or more float parameters and returns the lowest value among them.
+
+
+Here's the syntax for using Mathf.Min:
+Mathf.Min(float a, float b);
+
+
+You can also use Mathf.Min with more than two parameters, like this:
+Mathf.Min(float a, float b, float c, ...);
+
+
+Here's an example of using Mathf.Min with two float values:
+float a = 5.5f;
+float b = 2.3f;
+float minVal = Mathf.Min(a, b); // minVal will be 2.3f
+
+
+In this example, Mathf.Min(a, b) returns the minimum value between a and b, which is b since it has a lower value.
+
+
+You can also use Mathf.Min with more than two float values:
+float a = 3.4f;
+float b = 5.6f;
+float c = 2.1f;
+float minVal = Mathf.Min(a, b, c); // minVal will be 2.1f
+
+
+In this example, Mathf.Min(a, b, c) returns the minimum value among a, b, and c, which is c since it has the lowest value.
+Mathf.Min can be useful in various scenarios where you need to find the lowest value from a set of given float values, 
+such as in game development when determining the minimum health or damage of a character or object.
+
+
+
+
+
